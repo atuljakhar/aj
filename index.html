@@ -2,325 +2,99 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Atul Jakhar | Portfolio</title>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop App</title>
     <style>
-        /* --- CSS VARIABLES (Cleartrip Palette) --- */
-        :root {
-            --ct-orange: #FF4F17;       /* Primary Action Color */
-            --ct-blue: #3665f3;         /* Link/Highlight Color */
-            --ct-bg: #F4F5F7;           /* App Background */
-            --ct-card-bg: #FFFFFF;      /* Card Background */
-            --ct-text-dark: #1A1A1A;    /* Headings */
-            --ct-text-light: #828282;   /* Subtitles */
-            --card-radius: 12px;        /* Rounded corners */
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
-        }
-
-        /* --- GLOBAL RESET --- */
-        * {
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
-
+        /* Basic reset and body styling for context */
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--ct-bg);
+            background-color: #F2F2F7; /* Light gray background */
             margin: 0;
-            padding: 0;
-            padding-bottom: 90px; /* Space for bottom nav */
-            color: var(--ct-text-dark);
+            padding-bottom: 70px; /* Space for the bottom nav */
         }
 
-        /* --- HEADER (Sticky App Bar) --- */
-        header {
-            background: var(--ct-card-bg);
-            padding: 16px 20px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        header h1 {
-            font-size: 18px;
-            font-weight: 700;
-            margin: 0;
-            color: var(--ct-orange);
-            letter-spacing: -0.5px;
-        }
-
-        .header-link {
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--ct-blue);
-            text-decoration: none;
-        }
-
-        /* --- PROFILE WIDGET (Hero Card) --- */
-        .profile-card {
-            background: var(--ct-card-bg);
-            margin: 16px;
-            padding: 20px;
-            border-radius: var(--card-radius);
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .profile-img {
-            width: 64px;
-            height: 64px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--ct-bg);
-        }
-
-        .profile-info {
-            flex: 1;
-        }
-
-        .profile-info h2 {
-            font-size: 18px;
-            margin: 0 0 4px 0;
-            font-weight: 700;
-        }
-
-        .profile-info p {
-            font-size: 14px;
-            color: var(--ct-text-light);
-            margin: 0;
-            line-height: 1.4;
-        }
-
-        /* --- SECTION TITLES --- */
-        .section-title {
-            font-size: 14px;
-            text-transform: uppercase;
-            color: var(--ct-text-light);
-            margin: 24px 16px 10px;
-            letter-spacing: 0.8px;
-            font-weight: 700;
-        }
-
-        /* --- CARDS (The "Booking" Cards) --- */
-        .card {
-            background: var(--ct-card-bg);
-            margin: 0 16px 16px;
-            padding: 18px;
-            border-radius: var(--card-radius);
-            box-shadow: var(--shadow-sm);
-            border-left: 4px solid transparent;
-            transition: transform 0.2s ease;
-        }
-
-        .card:active {
-            transform: scale(0.98); /* Subtle press effect */
-        }
-
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 8px;
-        }
-
-        .card-role {
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--ct-text-dark);
-            max-width: 70%;
-        }
-
-        .card-date {
-            font-size: 11px;
-            font-weight: 600;
-            color: var(--ct-text-dark);
-            background: #EBEBEB;
-            padding: 4px 8px;
-            border-radius: 6px;
-            white-space: nowrap;
-        }
-
-        .card-org {
-            font-size: 14px;
-            color: var(--ct-text-light);
-            margin-bottom: 12px;
-            display: block;
-            font-weight: 500;
-        }
-
-        .card-details {
-            font-size: 13px;
-            line-height: 1.6;
-            color: #444;
-            border-top: 1px dashed #E0E0E0; /* Dashed line like a ticket */
-            padding-top: 12px;
-        }
-
-        /* --- BUTTONS --- */
-        .btn-primary {
-            display: block;
-            background-color: var(--ct-orange);
-            color: white;
-            text-align: center;
-            padding: 16px;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 16px;
-            text-decoration: none;
-            margin: 24px 16px;
-            box-shadow: 0 4px 15px rgba(255, 79, 23, 0.3);
-        }
-
-        /* --- BOTTOM NAVIGATION --- */
+        /* Bottom navigation bar styles */
         .bottom-nav {
             position: fixed;
             bottom: 0;
             left: 0;
-            right: 0;
-            background: white;
+            width: 100%;
+            height: 70px; /* Height of the nav bar */
+            background-color: #1C1C1E; /* Dark background color from the image */
             display: flex;
             justify-content: space-around;
-            padding: 10px 0 10px; /* Extra bottom padding for iPhone home bar */
-            border-top: 1px solid #E5E5E5;
+            align-items: center;
+            border-top: 1px solid #2C2C2E; /* Subtle top border */
+            padding-bottom: env(safe-area-inset-bottom); /* Handle safe area on iOS */
             z-index: 1000;
-            padding-bottom: env(safe-area-inset-bottom); /* iOS Safe Area */
         }
 
-        .nav-item {
+        /* Styles for each navigation link */
+        .nav-link {
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             text-decoration: none;
-            color: #999;
-            font-size: 10px;
-            font-weight: 500;
-            width: 25%;
+            color: #8E8E93; /* Inactive icon color (light grey) */
+            width: 25%; /* Distribute space evenly */
+            height: 100%;
         }
 
-        .nav-item.active {
-            color: var(--ct-orange);
-        }
-
+        /* Styles for the icons */
         .nav-icon {
-            font-size: 20px;
-            margin-bottom: 4px;
-            filter: grayscale(100%);
-            opacity: 0.6;
+            width: 28px;
+            height: 28px;
+            fill: currentColor; /* Use the link's color for fill */
         }
 
-        .nav-item.active .nav-icon {
-            filter: grayscale(0%);
-            opacity: 1;
+        /* Specific styles for the profile image */
+        .profile-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%; /* Make it circular */
+            object-fit: cover;
+            opacity: 0.7; /* Inactive state opacity */
         }
 
+        /* Styles for the active tab */
+        .nav-link.active {
+            color: #FFFFFF; /* Active icon color (white) */
+        }
+
+        .nav-link.active .profile-icon {
+            opacity: 1; /* Full opacity for active profile */
+            border: 2px solid #FFFFFF; /* Optional: Add a border to the active profile */
+        }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>atul.jakhar</h1>
-        <a href="#" class="header-link">View CV</a>
-    </header>
-
-    <div class="profile-card" id="about">
-        <img src="https://pbs.twimg.com/profile_images/1855943987443736576/RYk6VW1z_400x400.jpg" alt="Atul Jakhar" class="profile-img">
-        <div class="profile-info">
-            <h2>Dr. Atul Jakhar</h2>
-            <p>Postdoctoral Fellow @ IITM</p>
-            <p style="font-size: 12px; margin-top:6px; color: var(--ct-blue);">📍 Chennai, India</p>
+    <div style="padding: 20px;">
+        <h1>Home Page Content</h1>
         </div>
-    </div>
-
-    <div class="card">
-        <div class="card-details" style="border: none; padding-top: 0;">
-            <b>Fluid Dynamics Enthusiast.</b> Specializing in Computational Fluid Mechanics (CFD), AI in fluids, and stability analysis. Bridging the gap between classical simulation and modern AI.
-        </div>
-    </div>
-
-    <h2 class="section-title">Itinerary (Experience)</h2>
-
-    <div class="card" id="experience">
-        <div class="card-header">
-            <span class="card-role">Postdoctoral Fellow</span>
-            <span class="card-date">Current</span>
-        </div>
-        <span class="card-org">IIT Madras</span>
-        <div class="card-details">
-            • Conducting AI-driven fluid simulations.<br>
-            • Analyzing hydrodynamic stability.<br>
-            • Mentoring M.Tech and PhD students.
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="card-header">
-            <span class="card-role">Asst. Professor</span>
-            <span class="card-date">2024 - 2025</span>
-        </div>
-        <span class="card-org">Dayananda Sagar University</span>
-        <div class="card-details">
-            • Department of Mathematics.<br>
-            • Taught Linear Algebra & Differential Equations.<br>
-            • Designed curriculum for engineering undergraduates.
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="card-header">
-            <span class="card-role">PhD Researcher</span>
-            <span class="card-date">2018 - 2024</span>
-        </div>
-        <span class="card-org">IIT Ropar</span>
-        <div class="card-details">
-            • Thesis: Advanced computational models for non-Newtonian fluid flows.
-        </div>
-    </div>
-
-    <h2 class="section-title">Education</h2>
-
-    <div class="card" id="education">
-        <div class="card-header">
-            <span class="card-role">M.Sc Mathematics</span>
-            <span class="card-date">2016 - 2018</span>
-        </div>
-        <span class="card-org">NIT Warangal</span>
-    </div>
-
-    <div class="card">
-        <div class="card-header">
-            <span class="card-role">B.Sc (Hons) Math</span>
-            <span class="card-date">2013 - 2016</span>
-        </div>
-        <span class="card-org">Central Univ. of Rajasthan</span>
-    </div>
-
-    <a href="https://scholar.google.com/citations?user=2P_eyfoAAAAJ&hl=en" class="btn-primary">
-        View Google Scholar
-    </a>
 
     <nav class="bottom-nav">
-        <a href="#about" class="nav-item active">
-            <span class="nav-icon">👤</span>
-            Profile
+        <a href="index.html" class="nav-link active">
+            <svg class="nav-icon" viewBox="0 0 24 24">
+                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+            </svg>
         </a>
-        <a href="#experience" class="nav-item">
-            <span class="nav-icon">💼</span>
-            Work
+
+        <a href="list.html" class="nav-link">
+            <svg class="nav-icon" viewBox="0 0 24 24">
+                <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/>
+            </svg>
         </a>
-        <a href="#education" class="nav-item">
-            <span class="nav-icon">🎓</span>
-            Edu
+
+        <a href="cart.html" class="nav-link">
+            <svg class="nav-icon" viewBox="0 0 24 24">
+                <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+            </svg>
         </a>
-        <a href="mailto:atul.jakhar@example.com" class="nav-item">
-            <span class="nav-icon">✉️</span>
-            Contact
+
+        <a href="profile.html" class="nav-link">
+            <img src="https://via.placeholder.com/28" alt="Profile" class="profile-icon">
         </a>
     </nav>
 
