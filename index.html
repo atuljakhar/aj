@@ -9,6 +9,7 @@
         :root {
             --bg-color: #f5f5f7;
             --card-bg: #ffffff;
+            --nav-bg: rgba(245, 245, 247, 0.8);
             --text-primary: #1d1d1f;
             --text-secondary: #86868b;
             --accent: #0071e3;
@@ -22,6 +23,7 @@
         [data-theme="dark"] {
             --bg-color: #000000;
             --card-bg: #1c1c1e;
+            --nav-bg: rgba(0, 0, 0, 0.8);
             --text-primary: #f5f5f7;
             --text-secondary: #a1a1a6;
             --accent: #2997ff;
@@ -29,6 +31,11 @@
             --border-color: #38383a;
             --shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
             --modal-bg: rgba(28, 28, 30, 0.85);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px; /* Ensures fixed nav doesn't cover section titles */
         }
 
         body {
@@ -45,32 +52,79 @@
         a { color: var(--accent); text-decoration: none; }
         a:hover { text-decoration: underline; }
 
-        .container {
-            max-width: 860px;
-            margin: 0 auto;
-            padding: 40px 20px 100px 20px;
+        /* Navigation Bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--nav-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 900;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+            transition: background 0.3s ease;
         }
 
-        /* Top Controls */
-        .controls {
+        .nav-container {
             display: flex;
-            justify-content: flex-end;
-            margin-bottom: 20px;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 860px;
+            padding: 0 20px;
+        }
+
+        .nav-scroll {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; /* Firefox */
+        }
+        .nav-scroll::-webkit-scrollbar { display: none; /* Safari/Chrome */ }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            padding: 15px 0;
+            list-style: none;
+            margin: 0;
+            white-space: nowrap;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+            text-decoration: none;
         }
 
         .theme-toggle {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            color: var(--text-primary);
-            padding: 8px 16px;
-            border-radius: 20px;
+            background: transparent;
+            border: none;
+            font-size: 20px;
             cursor: pointer;
-            font-size: 14px;
-            font-weight: 500;
-            box-shadow: var(--shadow);
-            transition: all 0.2s ease;
+            padding: 5px 0 5px 15px;
+            margin-left: 10px;
+            border-left: 1px solid var(--border-color);
+            transition: transform 0.2s ease;
         }
-        .theme-toggle:hover { transform: scale(1.02); }
+        .theme-toggle:hover { transform: scale(1.1); }
+
+        /* Main Container */
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 100px 20px 100px 20px; /* Top padding adjusted for nav bar */
+        }
 
         /* Header Section */
         .header {
@@ -171,247 +225,262 @@
 
         /* Responsive */
         @media (max-width: 600px) {
-            .container { padding: 20px 15px 90px 15px; }
+            .container { padding: 90px 15px 90px 15px; }
             .section { padding: 20px; }
             .name { font-size: 28px; }
+            .nav-container { padding: 0 15px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="controls">
-            <button class="theme-toggle" id="themeToggle">🌙 Dark Mode</button>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-scroll">
+                <ul class="nav-links">
+                    <li><a href="#profile">Profile</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#publications">Publications</a></li>
+                    <li><a href="#achievements">Achievements</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                </ul>
+            </div>
+            <button class="theme-toggle" id="themeToggle" title="Toggle Dark/Light Mode">🌙</button>
         </div>
+    </nav>
 
-        <div class="header">
+    <div class="container">
+        
+        <div class="header" id="profile">
             <img src="IMG_0009.jpg" alt="Dr. Atul Jakhar" class="avatar">
-            <h1 class="name">Dr. Atul Jakhar [cite: 1]</h1>
-            <div class="title">National Post Doc Fellow <br> Department of Mathematics <br> Indian Instaitute of Technology, Madras (IITM) [cite: 1]</div>
+            <h1 class="name">Dr. Atul Jakhar</h1>
+            <div class="title">National Post Doc Fellow <br> Department of Mathematics <br> Indian Instaitute of Technology, Madras (IITM)</div>
             
             <div class="contact-info">
-                <span>📧 <a href="mailto:dratuljakhar@gmail.com">dratuljakhar@gmail.com</a> [cite: 1]</span>
-                <span>📧 <a href="mailto:dratuljakhar@icloud.com">dratuljakhar@icloud.com</a> [cite: 1]</span><br>
-                <span>📱 +91-9145851458 (Mobile) [cite: 1]</span>
-                <span>🌐 <a href="https://www.atuljakhar.github.io/" target="_blank">Webpage</a> [cite: 1]</span>
-                <span>🎂 DOB: XX-XX-1996 [cite: 1]</span>
+                <span>📧 <a href="mailto:dratuljakhar@gmail.com">dratuljakhar@gmail.com</a></span>
+                <span>📧 <a href="mailto:dratuljakhar@icloud.com">dratuljakhar@icloud.com</a></span><br>
+                <span>📱 +91-9145851458 (Mobile)</span>
+                <span>🌐 <a href="https://www.atuljakhar.github.io/" target="_blank">Webpage</a></span>
+                <span>🎂 DOB: XX-XX-1996</span>
             </div>
         </div>
 
         <div class="section">
-            <h2 class="section-title">Research Interests [cite: 2]</h2>
-            <p>Chaos, Machine learning in Linear/Nonlinear instability analysis, Dynamical system, Physics Informed Neural network, Computational Fluid dynamics. [cite: 3]</p>
+            <h2 class="section-title">Research Interests</h2>
+            <p>Chaos, Machine learning in Linear/Nonlinear instability analysis, Dynamical system, Physics Informed Neural network, Computational Fluid dynamics.</p>
         </div>
 
-        <div class="section">
-            <h2 class="section-title">Education [cite: 4]</h2>
+        <div class="section" id="education">
+            <h2 class="section-title">Education</h2>
             <ul class="item-list">
                 <li class="item">
-                    <div class="item-title">Ph.D. (Mathematics) (82.3%) [cite: 5]</div>
-                    <div class="item-subtitle">August 2019 - May 2024. [cite: 11]</div>
-                    <div class="item-subtitle">Central University of Rajasthan, Ajmer (CURAJ) [cite: 8]</div>
-                    <div class="item-subtitle">Thesis Title: A Study of Instability in Newtonian Fluid [cite: 6]</div>
-                    <div class="item-subtitle">Thesis Advisor Prof. Anand Kumar [cite: 7]</div>
+                    <div class="item-title">Ph.D. (Mathematics) (82.3%)</div>
+                    <div class="item-subtitle">August 2019 - May 2024.</div>
+                    <div class="item-subtitle">Central University of Rajasthan, Ajmer (CURAJ)</div>
+                    <div class="item-subtitle">Thesis Title: A Study of Instability in Newtonian Fluid</div>
+                    <div class="item-subtitle">Thesis Advisor Prof. Anand Kumar</div>
                 </li>
                 <li class="item">
-                    <div class="item-title">Integrated M.Sc. (Mathematics) (cgpa 3.89 out of 6) [cite: 9]</div>
-                    <div class="item-subtitle">Central University of Rajasthan, Ajmer (CURAJ) [cite: 15]</div>
+                    <div class="item-title">Integrated M.Sc. (Mathematics) (cgpa 3.89 out of 6)</div>
+                    <div class="item-subtitle">Central University of Rajasthan, Ajmer (CURAJ)</div>
                     <ul>
-                        <li><strong>Integrated M.Sc. (Mathematics Major)</strong> [cite: 10] (Jan. 2018 - June 2018. [cite: 12]) <br> M.Sc. Thesis Title: Study of heat and mass transfer of free convection through vertical annuli in presence of heat source, chemical reaction and Newtonian heating. [cite: 13] <br> M.Sc. Thesis Advisor: Prof. Anand Kumar [cite: 14]</li>
-                        <li><strong>Integrated M.Sc. (Mathematics Minor project)</strong> [cite: 16] (Jan. 2016 - June 2016. [cite: 17]) <br> Int. M.Sc. Minor Thesis Title: Study of heat transfer from vertical concentric annuli by hankel transform. [cite: 18] <br> Int. M.Sc. Minor Thesis Advisor Prof. Anand Kumar [cite: 19] <br> Central University of Rajasthan, Ajmer (CURAJ) [cite: 20]</li>
+                        <li><strong>Integrated M.Sc. (Mathematics Major)</strong> (Jan. 2018 - June 2018.) <br> M.Sc. Thesis Title: Study of heat and mass transfer of free convection through vertical annuli in presence of heat source, chemical reaction and Newtonian heating. <br> M.Sc. Thesis Advisor: Prof. Anand Kumar</li>
+                        <li><strong>Integrated M.Sc. (Mathematics Minor project)</strong> (Jan. 2016 - June 2016.) <br> Int. M.Sc. Minor Thesis Title: Study of heat transfer from vertical concentric annuli by hankel transform. <br> Int. M.Sc. Minor Thesis Advisor Prof. Anand Kumar <br> Central University of Rajasthan, Ajmer (CURAJ)</li>
                     </ul>
                 </li>
                 <li class="item">
-                    <div class="item-title">Senior Secondary School Tagore children academy, Surajgadh (80.40%) [cite: 21]</div>
-                    <div class="item-subtitle">2012-13 [cite: 24]</div>
+                    <div class="item-title">Senior Secondary School Tagore children academy, Surajgadh (80.40%)</div>
+                    <div class="item-subtitle">2012-13</div>
                 </li>
             </ul>
         </div>
 
-        <div class="section">
-            <h2 class="section-title">Teaching Experience [cite: 22]</h2>
+        <div class="section" id="experience">
+            <h2 class="section-title">Teaching Experience</h2>
             <ul class="item-list">
                 <li class="item">
-                    <div class="item-title">Assistant Professor: [cite: 23]</div>
-                    <div class="item-subtitle">Dayananda Sagar University, Harohalli, Bengaluru. [cite: 25]</div>
+                    <div class="item-title">Assistant Professor:</div>
+                    <div class="item-subtitle">Dayananda Sagar University, Harohalli, Bengaluru.</div>
                     <ul>
-                        <li>Linear algebra and Differential equation (LADE)- 1st year B.Tech. DSU, Bengaluru (2024-2025). [cite: 26]</li>
-                        <li>Single and Multivariate Calculus (SMC) 1st year B.Tech. DSU, Bengaluru (2024-2025). [cite: 27]</li>
+                        <li>Linear algebra and Differential equation (LADE)- 1st year B.Tech. DSU, Bengaluru (2024-2025).</li>
+                        <li>Single and Multivariate Calculus (SMC) 1st year B.Tech. DSU, Bengaluru (2024-2025).</li>
                     </ul>
                 </li>
                 <li class="item">
-                    <div class="item-title">M.Sc. Student guided: [cite: 28]</div>
-                    <div class="item-subtitle">Mr. Manoharat Central University of Rajasthan [cite: 29] (January-May, 2025) [cite: 30]</div>
-                    <div class="item-subtitle">Title: Nonlinear Influence of Double-Diffusive convection under Rotation and temperature modulation [cite: 31]</div>
+                    <div class="item-title">M.Sc. Student guided:</div>
+                    <div class="item-subtitle">Mr. Manoharat Central University of Rajasthan (January-May, 2025)</div>
+                    <div class="item-subtitle">Title: Nonlinear Influence of Double-Diffusive convection under Rotation and temperature modulation</div>
                 </li>
                 <li class="item">
-                    <div class="item-title">Teaching Assistant [cite: 31]</div>
+                    <div class="item-title">Teaching Assistant</div>
                     <ul>
-                        <li>MAT700 Course (Research Methodology in Mathematics) at CURAJ, Ajmer (2022-23, 2023-34). [cite: 32]</li>
-                        <li>MAT303 Course (Analytical geometry) at Central University of Rajasthan. (2021-22, 2022-23). [cite: 33]</li>
-                        <li>IMM484/MSM424/MBM424 Course (Partial Differential Equations) at CURAJ, Ajmer (2021-22). [cite: 34]</li>
-                        <li>MTH603 Course (Calculus of variation & Integral equations) at CURAJ, Ajmer (2021-22, 2022-23). [cite: 35]</li>
-                        <li>MAT102 Course (Mathematics I) at CURAJ, Ajmer (2020-21). [cite: 36]</li>
+                        <li>MAT700 Course (Research Methodology in Mathematics) at CURAJ, Ajmer (2022-23, 2023-34).</li>
+                        <li>MAT303 Course (Analytical geometry) at Central University of Rajasthan. (2021-22, 2022-23).</li>
+                        <li>IMM484/MSM424/MBM424 Course (Partial Differential Equations) at CURAJ, Ajmer (2021-22).</li>
+                        <li>MTH603 Course (Calculus of variation & Integral equations) at CURAJ, Ajmer (2021-22, 2022-23).</li>
+                        <li>MAT102 Course (Mathematics I) at CURAJ, Ajmer (2020-21).</li>
                     </ul>
                 </li>
             </ul>
         </div>
 
-        <div class="section">
-            <h2 class="section-title">Research Papers [cite: 37]</h2>
-            <p style="font-size: 14px; margin-bottom: 10px;">Published/Accepted: [cite: 38]</p>
+        <div class="section" id="publications">
+            <h2 class="section-title">Research Papers</h2>
+            <p style="font-size: 14px; margin-bottom: 10px;">Published/Accepted:</p>
             <details>
                 <summary>View All 15 Publications</summary>
                 <div>
                     <ul class="compact-list">
-                        <li>1. Atul Jakhar, Anand Kumar: Instability analysis of double diffusive convection under time dependent solute boundary conditions in the presence of internal heat generator, Physics of Fluids, 35 (7): 077101 (2023). [cite: 39] https://doi.org/10.1063/5.0155264 (Q1, SCI) [cite: 40]</li>
-                        <li>2. Atul Jakhar, Anand Kumar, VK. Gupta; Study of weakly nonlinear double-diffusive magnetoconvection under concentration modulation, Heat Transfer, 52: 5500-5519 (2023). [cite: 41] https://doi:10.1002/htj.22939 (Q2, SCI) [cite: 42]</li>
-                        <li>3. Atul Jakhar, Anand Kumar, Vinod K. Gupta: Weakly nonlinear instability analysis of triple diffusive convection under internal heat generator and modulated boundaries, Physics of Fluids, 35 (10): 104105 (2023). [cite: 44] https://doi.org/10.1063/5.0169618 (Q1, SCI) [cite: 45]</li>
-                        <li>4. Atul Jakhar, Anand Kumar, Priyanka Joshi Study of weakly nonlinear double-diffusive magneto-convection with Throughflow under concentration modulation, Nonlinear Engineering, 2024: 2192-8029. [cite: 46] https://doi.org: 10.1515/nleng-2024-0013 (Q2, SCI) [cite: 47]</li>
-                        <li>5. Anupama Singh, Atul Jakhar, Anand Kumar*: Effect of modulated boundary on heat and mass transport of Walter-B viscoelastic fluid saturated in porous medium, Nonlinear Engineering, 2024. https://doi.org: 10.1515/nleng-2024-0014 (Q2, SCI) [cite: 48]</li>
-                        <li>6. Anurag Shukla, Ashok Singh, Anand Kumar, Atul Jakhar*; Influence of Chemical Reaction on Transient Natural Convective Flow in an Infinite Vertical Cylinder Packed with Porous Material, Numerical Heat Transfer, Part A, 2024. https://doi.org:10.1080/10407782.2024.2388244 (Q2, SCI) [cite: 49]</li>
-                        <li>7. Atul Jakhar, Anurag, Anand Kumar*; Weakly nonlinear instability analysis in Triple diffusive convection under gravity modulation in presence of internal heat source, Heat Transfer, 2024. http://dx.doi.org/ 10.1002/htj.23170 (Q2, SCI) [cite: 50]</li>
-                        <li>8. V.K. Sukariya, Anurag, Atul Jakhar, Anand Kumar, Effect of Hall current generated by a radial magnetic field on transient natural convection between vertical annuli, Eur. [cite: 51] Phys. J. Plus, 139:996 (2024). https://doi.org/10.1140/epjp/s13360-024-05786-9 [cite: 52]</li>
-                        <li>9. Atul Jakhar, Vijay Kumar, Suresh, Anand Kumar, Anurag*, Study of MHD Williamson fluid flow over a stretched cylinder with Hall, thermal dynamics, and chemical reactions effects, Journal of Thermal Analysis and Calorimetry (2024). (Q2, SCI)https://doi.org/10.1007/s10973-024-13851- [cite: 53]</li>
-                        <li>10. Atul Jakhar, Anand Kumar, VK. Sukariya, Anurag, Study of Heat and Mass transfer of transient free convection through vertical Annuli in presence of Heat Source, Chemical Reaction and Newtonian Heating, Heat Transfer (2025). [cite: 54] (Q2, SCI) (https://doi.org/10.1002/htj.23283) [cite: 55]</li>
-                        <li>11. Sukariya, V.K., Jakhar, A., sharma, P., Kumar, A., Anurag, Numerical exploration of heat source/sink and mixed convection effects on thermally stratified $Cu-Al_{2}O_{3}/H_{2}O$ hybrid nanofluid flow over a vertical stretching cylinder subjected to a radial magnetic field, Z Angew Math Mech. [cite: 56] 105, e202400963 (2025). (Q2, SCI) (https://doi.org/10.1002/zamm.202400963) [cite: 57]</li>
-                        <li>12. Anurag, Singh, A., Kumar, A. Jakhar, A., Investigating the nonlinear behavior of microorganisms in buoyant fluids. Multiscale and Multidiscip. [cite: 58] Model. Exp. and Des., 8, 226 (2025). (Q2, SCI) https://doi.org/10.1007/s41939-025-00825-z [cite: 59]</li>
-                        <li>13. Anurag, Sukariya, V.K., Lata, J., Kumar, A., Jakhar, A., Effect of hall current and radial magnetic field on $MoS_{2}-SiO_{2}/H_{2}O$ hybrid nanofluid flow over a vertical stretching cylinder, J Braz. [cite: 60] Soc. Mech. Sci. Eng., 47, 187 (2025). (Q2, SCI) https://doi.org/10.1007/s40430-025-05504-1 [cite: 61]</li>
-                        <li>14. Jakhar A., Anurag, Sukariya, VK., Kumar, A., Study of bio-convection dynamics under time-varying concentration gradient, Chinese journal of Physics, 2025. (Q1, SCI) https://doi.org/10.1016/j.cjph. [cite: 62] 2025.04.031 [cite: 63]</li>
-                        <li>15. Anurag, Sukariya, VK., Kumar A., Rathore, T., Jakhar, A., A Numerical Study on the Influence of Viscous Dissipation and Hall Current Induced by a Radial Magnetic Field on MHD Flow over a Stretching Cylinder, ZAMM Journal of Applied Mathematics and Mechanics, 2026. (Q2, SCI) https://doi.org/ 10.1002/zamm.70351 [cite: 64]</li>
+                        <li>1. Atul Jakhar, Anand Kumar: Instability analysis of double diffusive convection under time dependent solute boundary conditions in the presence of internal heat generator, Physics of Fluids, 35 (7): 077101 (2023). https://doi.org/10.1063/5.0155264 (Q1, SCI)</li>
+                        <li>2. Atul Jakhar, Anand Kumar, VK. Gupta; Study of weakly nonlinear double-diffusive magnetoconvection under concentration modulation, Heat Transfer, 52: 5500-5519 (2023). https://doi:10.1002/htj.22939 (Q2, SCI)</li>
+                        <li>3. Atul Jakhar, Anand Kumar, Vinod K. Gupta: Weakly nonlinear instability analysis of triple diffusive convection under internal heat generator and modulated boundaries, Physics of Fluids, 35 (10): 104105 (2023). https://doi.org/10.1063/5.0169618 (Q1, SCI)</li>
+                        <li>4. Atul Jakhar, Anand Kumar, Priyanka Joshi Study of weakly nonlinear double-diffusive magneto-convection with Throughflow under concentration modulation, Nonlinear Engineering, 2024: 2192-8029. https://doi.org: 10.1515/nleng-2024-0013 (Q2, SCI)</li>
+                        <li>5. Anupama Singh, Atul Jakhar, Anand Kumar*: Effect of modulated boundary on heat and mass transport of Walter-B viscoelastic fluid saturated in porous medium, Nonlinear Engineering, 2024. https://doi.org: 10.1515/nleng-2024-0014 (Q2, SCI)</li>
+                        <li>6. Anurag Shukla, Ashok Singh, Anand Kumar, Atul Jakhar*; Influence of Chemical Reaction on Transient Natural Convective Flow in an Infinite Vertical Cylinder Packed with Porous Material, Numerical Heat Transfer, Part A, 2024. https://doi.org:10.1080/10407782.2024.2388244 (Q2, SCI)</li>
+                        <li>7. Atul Jakhar, Anurag, Anand Kumar*; Weakly nonlinear instability analysis in Triple diffusive convection under gravity modulation in presence of internal heat source, Heat Transfer, 2024. http://dx.doi.org/ 10.1002/htj.23170 (Q2, SCI)</li>
+                        <li>8. V.K. Sukariya, Anurag, Atul Jakhar, Anand Kumar, Effect of Hall current generated by a radial magnetic field on transient natural convection between vertical annuli, Eur. Phys. J. Plus, 139:996 (2024). https://doi.org/10.1140/epjp/s13360-024-05786-9</li>
+                        <li>9. Atul Jakhar, Vijay Kumar, Suresh, Anand Kumar, Anurag*, Study of MHD Williamson fluid flow over a stretched cylinder with Hall, thermal dynamics, and chemical reactions effects, Journal of Thermal Analysis and Calorimetry (2024). (Q2, SCI)https://doi.org/10.1007/s10973-024-13851-</li>
+                        <li>10. Atul Jakhar, Anand Kumar, VK. Sukariya, Anurag, Study of Heat and Mass transfer of transient free convection through vertical Annuli in presence of Heat Source, Chemical Reaction and Newtonian Heating, Heat Transfer (2025). (Q2, SCI) (https://doi.org/10.1002/htj.23283)</li>
+                        <li>11. Sukariya, V.K., Jakhar, A., sharma, P., Kumar, A., Anurag, Numerical exploration of heat source/sink and mixed convection effects on thermally stratified $Cu-Al_{2}O_{3}/H_{2}O$ hybrid nanofluid flow over a vertical stretching cylinder subjected to a radial magnetic field, Z Angew Math Mech. 105, e202400963 (2025). (Q2, SCI) (https://doi.org/10.1002/zamm.202400963)</li>
+                        <li>12. Anurag, Singh, A., Kumar, A. Jakhar, A., Investigating the nonlinear behavior of microorganisms in buoyant fluids. Multiscale and Multidiscip. Model. Exp. and Des., 8, 226 (2025). (Q2, SCI) https://doi.org/10.1007/s41939-025-00825-z</li>
+                        <li>13. Anurag, Sukariya, V.K., Lata, J., Kumar, A., Jakhar, A., Effect of hall current and radial magnetic field on $MoS_{2}-SiO_{2}/H_{2}O$ hybrid nanofluid flow over a vertical stretching cylinder, J Braz. Soc. Mech. Sci. Eng., 47, 187 (2025). (Q2, SCI) https://doi.org/10.1007/s40430-025-05504-1</li>
+                        <li>14. Jakhar A., Anurag, Sukariya, VK., Kumar, A., Study of bio-convection dynamics under time-varying concentration gradient, Chinese journal of Physics, 2025. (Q1, SCI) https://doi.org/10.1016/j.cjph. 2025.04.031</li>
+                        <li>15. Anurag, Sukariya, VK., Kumar A., Rathore, T., Jakhar, A., A Numerical Study on the Influence of Viscous Dissipation and Hall Current Induced by a Radial Magnetic Field on MHD Flow over a Stretching Cylinder, ZAMM Journal of Applied Mathematics and Mechanics, 2026. (Q2, SCI) https://doi.org/ 10.1002/zamm.70351</li>
                     </ul>
-                    <p style="font-size: 12px; font-style: italic; margin-top: 10px;">* denotes corresponding author [cite: 65]</p>
+                    <p style="font-size: 12px; font-style: italic; margin-top: 10px;">* denotes corresponding author</p>
                 </div>
             </details>
         </div>
 
-        <div class="section">
-            <h2 class="section-title">Fellowships & Achievements [cite: 66]</h2>
+        <div class="section" id="achievements">
+            <h2 class="section-title">Fellowships & Achievements</h2>
             <ul class="compact-list">
-                <li>ANRF National Postdoctoral Fellowship 2025 by Govt. of India. [cite: 67]</li>
-                <li>Awarded the AMS Grant for attending ICM 2026 at Philadelphia, Pennsylvania, USA. [cite: 68]</li>
-                <li>Awarded UGC University Scholarship for Ph.D. at Central University of Rajasthan. (2019) [cite: 69]</li>
-                <li>Qualified CSIR-UGC National Eligibility Test (NET) examination for PhD fellowship conducted by CSIR HRDG, Govt. of India. (2019) [cite: 70]</li>
-                <li>Qualified Central universities common entrance test 2019 for Ph.D. fellowship. [cite: 72]</li>
-                <li>Attended Summer Program in mathematics (SPIM)-2017 by Harishchandra Research Institute, Allahabad, India. [cite: 73]</li>
-                <li>Honoured academic representative of department of mathematics at Central University of Rajasthan, India in 2015. [cite: 74]</li>
-                <li>Awarded Summer Research fellowship at Indian Institute of Science Education & Research (IISER) Mohali in 2014. [cite: 75]</li>
-                <li>Awarded winter Research fellow at Birla Institute of Science & Technology (BITS) Pilani in 2014. [cite: 76]</li>
-                <li>Awarded Central Sector Scholarship for University Students 2013 in Basic Science offered by Ministry of Resource Development (MHRD), Govt of India. [cite: 77]</li>
-                <li>Qualified Central University common entrance test-2013 for Integrated M.Sc. [cite: 78]</li>
-                <li>Secured $100/100$ marks in Mathematics at Middle level in RBSE (Board of secondary education, Rajasthan, India). [cite: 79]</li>
-                <li>"Academic Excellency Awards" at school level up to $11^{th}$ standard. [cite: 80]</li>
+                <li>ANRF National Postdoctoral Fellowship 2025 by Govt. of India.</li>
+                <li>Awarded the AMS Grant for attending ICM 2026 at Philadelphia, Pennsylvania, USA.</li>
+                <li>Awarded UGC University Scholarship for Ph.D. at Central University of Rajasthan. (2019)</li>
+                <li>Qualified CSIR-UGC National Eligibility Test (NET) examination for PhD fellowship conducted by CSIR HRDG, Govt. of India. (2019)</li>
+                <li>Qualified Central universities common entrance test 2019 for Ph.D. fellowship.</li>
+                <li>Attended Summer Program in mathematics (SPIM)-2017 by Harishchandra Research Institute, Allahabad, India.</li>
+                <li>Honoured academic representative of department of mathematics at Central University of Rajasthan, India in 2015.</li>
+                <li>Awarded Summer Research fellowship at Indian Institute of Science Education & Research (IISER) Mohali in 2014.</li>
+                <li>Awarded winter Research fellow at Birla Institute of Science & Technology (BITS) Pilani in 2014.</li>
+                <li>Awarded Central Sector Scholarship for University Students 2013 in Basic Science offered by Ministry of Resource Development (MHRD), Govt of India.</li>
+                <li>Qualified Central University common entrance test-2013 for Integrated M.Sc.</li>
+                <li>Secured $100/100$ marks in Mathematics at Middle level in RBSE (Board of secondary education, Rajasthan, India).</li>
+                <li>"Academic Excellency Awards" at school level up to $11^{th}$ standard.</li>
             </ul>
         </div>
 
         <div class="section">
-            <h2 class="section-title">Selected Talks & Presentations [cite: 81]</h2>
+            <h2 class="section-title">Selected Talks & Presentations</h2>
             <ul class="item-list">
                 <li class="item">
-                    <div class="item-title">1. Title: Study of heat and mass transfer of free convection through vertical annuli in presence of heat source, chemical reaction and Newtonian heating [cite: 82]</div>
-                    <div class="item-subtitle">Venue: $35^{th}$ Annual conference of RMS 2020, CURAJ, Ajmer. [cite: 83]</div>
+                    <div class="item-title">1. Title: Study of heat and mass transfer of free convection through vertical annuli in presence of heat source, chemical reaction and Newtonian heating</div>
+                    <div class="item-subtitle">Venue: $35^{th}$ Annual conference of RMS 2020, CURAJ, Ajmer.</div>
                 </li>
                 <li class="item">
-                    <div class="item-title">2. Title: Effect of non-uniform heating and ramped concentration on magneto double diffusive-convection flow of Casson fluid over a vertical cone [cite: 84]</div>
-                    <div class="item-subtitle">Venue: Complex Dynamical Systems and Applications (CDSA 2020), CURAJ, Ajmer. [cite: 85]</div>
+                    <div class="item-title">2. Title: Effect of non-uniform heating and ramped concentration on magneto double diffusive-convection flow of Casson fluid over a vertical cone</div>
+                    <div class="item-subtitle">Venue: Complex Dynamical Systems and Applications (CDSA 2020), CURAJ, Ajmer.</div>
                 </li>
             </ul>
         </div>
 
         <div class="section">
-            <h2 class="section-title">Selected Workshops/Conferences/Webinars Attended [cite: 86]</h2>
+            <h2 class="section-title">Selected Workshops/Conferences/Webinars Attended</h2>
             <details>
                 <summary>View All 10 Events</summary>
                 <div>
                     <ul class="compact-list">
-                        <li>FDP: Exploring the Foundations and Applications of Quantum Computing: Bridging Theory and Practice AICTE Training and Learning (ATAL) Academy, Jain University, Bangalore [IN] [cite: 87] (Sept.08-13, 2025) [cite: 88]</li>
-                        <li>FDP: Entangle 25: A Hands-on workshop on Quantum Computing and Emerging Paradigms. Dayananda Sagar University, Bangalore [IN] [cite: 89] (Aug. 06-10, 2025) [cite: 91]</li>
-                        <li>Workshop: Asian and European Schools in Mathematics (AESIM-2023) -Birla Institute of Technology, Pilani [IN] [cite: 90] (Dec. 28, 2023- Jan. 06, 2024) [cite: 92]</li>
-                        <li>Workshop: International Workshop on Celestial Mechanics and Dynamical Astronomy (IWCMDA-2023) Central University of Rajasthan, Ajmer [IN] [cite: 93] (January 06-08, 2023). [cite: 96]</li>
-                        <li>Webinar: Applications of Stochastic Models and Queueing Theory Central University of Rajasthan, Ajmer [IN] [cite: 94] (Oct. 11- Nov. 11, 2022). [cite: 98]</li>
-                        <li>Workshop: Three day National level Workshop on MATLAB for beginners Bharathidasan University [IN] [cite: 95] (July 28-30, 2020). [cite: 99]</li>
-                        <li>Workshop: Indian Women and Mathematics: Regional Workshop on Research and Opportunities IIT Bhilai [IN] [cite: 97] (Feb. 21, 2021). [cite: 100]</li>
-                        <li>Conference: Virtual Heidelberg Laureate Forum 2020 [cite: 101] Heidelberg Laureate Forum Foundation, Germany [cite: 102] (Sept. 21-25, 2020). [cite: 104]</li>
-                        <li>Conference: Complex Dynamical Systems and Applications (CDSA 2020) [cite: 103] Central University of Rajasthan, Ajmer [IN] [cite: 105] (Feb. 21-23, 2020). [cite: 106]</li>
-                        <li>Conference: International conference on class groups of number fields and related [cite: 107] topics [cite: 108] Harish Chandra Research Institute [IN] [cite: 109] (Oct. 16-19, 2019). [cite: 110]</li>
-                        <li>Workshop: Group and Symmetries [cite: 111] - National Academy of Science [IN] [cite: 112] (Dec. 21-23, 2017). [cite: 113]</li>
-                        <li>Workshop: National Program on Differential Equations Theory, Computation and Application - LNMIIT, Jaipur [IN] [cite: 114] (May 18- June 06, 2017) [cite: 115]</li>
+                        <li>FDP: Exploring the Foundations and Applications of Quantum Computing: Bridging Theory and Practice AICTE Training and Learning (ATAL) Academy, Jain University, Bangalore [IN] (Sept.08-13, 2025)</li>
+                        <li>FDP: Entangle 25: A Hands-on workshop on Quantum Computing and Emerging Paradigms. Dayananda Sagar University, Bangalore [IN] (Aug. 06-10, 2025)</li>
+                        <li>Workshop: Asian and European Schools in Mathematics (AESIM-2023) -Birla Institute of Technology, Pilani [IN] (Dec. 28, 2023- Jan. 06, 2024)</li>
+                        <li>Workshop: International Workshop on Celestial Mechanics and Dynamical Astronomy (IWCMDA-2023) Central University of Rajasthan, Ajmer [IN] (January 06-08, 2023).</li>
+                        <li>Webinar: Applications of Stochastic Models and Queueing Theory Central University of Rajasthan, Ajmer [IN] (Oct. 11- Nov. 11, 2022).</li>
+                        <li>Workshop: Three day National level Workshop on MATLAB for beginners Bharathidasan University [IN] (July 28-30, 2020).</li>
+                        <li>Workshop: Indian Women and Mathematics: Regional Workshop on Research and Opportunities IIT Bhilai [IN] (Feb. 21, 2021).</li>
+                        <li>Conference: Virtual Heidelberg Laureate Forum 2020 Heidelberg Laureate Forum Foundation, Germany (Sept. 21-25, 2020).</li>
+                        <li>Conference: Complex Dynamical Systems and Applications (CDSA 2020) Central University of Rajasthan, Ajmer [IN] (Feb. 21-23, 2020).</li>
+                        <li>Conference: International conference on class groups of number fields and related topics Harish Chandra Research Institute [IN] (Oct. 16-19, 2019).</li>
+                        <li>Workshop: Group and Symmetries - National Academy of Science [IN] (Dec. 21-23, 2017).</li>
+                        <li>Workshop: National Program on Differential Equations Theory, Computation and Application - LNMIIT, Jaipur [IN] (May 18- June 06, 2017)</li>
                     </ul>
                 </div>
             </details>
         </div>
 
-        <div class="section">
-            <h2 class="section-title">Projects & Internships [cite: 117]</h2>
+        <div class="section" id="projects">
+            <h2 class="section-title">Projects & Internships</h2>
             <details>
                 <summary>View Projects</summary>
                 <div>
                     <ul class="item-list">
                         <li class="item">
                             <div class="item-title">Project: Study of Heat and Mass transfer through a vertical annuli in presence of chemical reaction and Newtonian heat Central University of Rajasthan, Ajmer</div>
-                            <div class="item-subtitle">Project supervisor: Dr. Anand Kumar [cite: 118] (Jan.-May, 2018). [cite: 122]</div>
+                            <div class="item-subtitle">Project supervisor: Dr. Anand Kumar (Jan.-May, 2018).</div>
                         </li>
                         <li class="item">
                             <div class="item-title">Internship: Summer Programme in Mathematics (SPIM)</div>
-                            <div class="item-subtitle">Harish Chandra Research Institute, Prayagraj [IN] [cite: 119] (June-July, 2017). [cite: 123]</div>
+                            <div class="item-subtitle">Harish Chandra Research Institute, Prayagraj [IN] (June-July, 2017).</div>
                         </li>
                         <li class="item">
                             <div class="item-title">Project: A Study of Fractional Differential Equations</div>
-                            <div class="item-subtitle">Birla Institute of Science and Technology, Pilani [IN] [cite: 120] <br> Project supervisor: Prof. Devendra Kumar [cite: 121] (May-June, 2016). [cite: 124]</div>
+                            <div class="item-subtitle">Birla Institute of Science and Technology, Pilani [IN] <br> Project supervisor: Prof. Devendra Kumar (May-June, 2016).</div>
                         </li>
                         <li class="item">
                             <div class="item-title">Project: Study of heat transfer from vertical concentric annuli by hankel transform</div>
-                            <div class="item-subtitle">Central university of Rajasthan, Ajmer [IN] [cite: 128] <br> Project supervisor: Dr. Anand Kumar [cite: 129] (Jan.- May, 2016). [cite: 125]</div>
+                            <div class="item-subtitle">Central university of Rajasthan, Ajmer [IN] <br> Project supervisor: Dr. Anand Kumar (Jan.- May, 2016).</div>
                         </li>
                         <li class="item">
                             <div class="item-title">Project: Basics of B-splines for Numerical Solution of BVPs using MATLAB</div>
-                            <div class="item-subtitle">Birla Institute of Science and Technology, Pilani [IN] [cite: 130] <br> Project supervisor: Prof. Devendra Kumar [cite: 131] (Dec. 2014- Jan. 2015). [cite: 126]</div>
+                            <div class="item-subtitle">Birla Institute of Science and Technology, Pilani [IN] <br> Project supervisor: Prof. Devendra Kumar (Dec. 2014- Jan. 2015).</div>
                         </li>
                         <li class="item">
                             <div class="item-title">Project: Group Theory and it's applications</div>
-                            <div class="item-subtitle">Indian Institute of Science Education and Research, Mohali [IN] [cite: 132] <br> Project supervisor: Prof. Sudesh Kaur Khanduja [cite: 133] (May-July, 2014). [cite: 127]</div>
+                            <div class="item-subtitle">Indian Institute of Science Education and Research, Mohali [IN] <br> Project supervisor: Prof. Sudesh Kaur Khanduja (May-July, 2014).</div>
                         </li>
                     </ul>
                 </div>
             </details>
         </div>
 
-        <div class="section">
-            <h2 class="section-title">Technical Skills [cite: 134]</h2>
+        <div class="section" id="skills">
+            <h2 class="section-title">Technical Skills</h2>
             <ul class="compact-list">
-                <li>Programming: Scilab, Mathematica, Matlab, Latex, C, C++, Python. [cite: 135]</li>
-                <li>Familiar with macOS, Windows, Linux & Android, HTML 5, MS Office, Libre Office. [cite: 136]</li>
+                <li>Programming: Scilab, Mathematica, Matlab, Latex, C, C++, Python.</li>
+                <li>Familiar with macOS, Windows, Linux & Android, HTML 5, MS Office, Libre Office.</li>
             </ul>
         </div>
 
         <div class="section">
-            <h2 class="section-title">Other Academics Services and Sports Activities [cite: 137]</h2>
+            <h2 class="section-title">Other Academics Services and Sports Activities</h2>
             
-            <h3 style="font-size: 16px; margin-top: 15px;">Academics: [cite: 138]</h3>
+            <h3 style="font-size: 16px; margin-top: 15px;">Academics:</h3>
             <ul class="compact-list">
-                <li>Nominated Student Council Member of Ph.D. Scholars for academic session 2022-23. [cite: 139]</li>
-                <li>Organized SRIJAN- 2022, an annual festival of Central University of Rajasthan. [cite: 140]</li>
-                <li>Elected Student representative of Volleyball club of Central University of Rajasthan for the academic year 2019-22. [cite: 141]</li>
-                <li>Organized Math-Earth 2018, an annual festival of mathematics department at Central University of Rajasthan. [cite: 142]</li>
-                <li>Selected Academic representative of Mathematics department of Central University of Rajasthan for the academic session 2015-16. [cite: 143]</li>
-                <li>Elected Student representative of Volleyball club for session 2015-17 at Central University of Rajasthan. [cite: 144]</li>
+                <li>Nominated Student Council Member of Ph.D. Scholars for academic session 2022-23.</li>
+                <li>Organized SRIJAN- 2022, an annual festival of Central University of Rajasthan.</li>
+                <li>Elected Student representative of Volleyball club of Central University of Rajasthan for the academic year 2019-22.</li>
+                <li>Organized Math-Earth 2018, an annual festival of mathematics department at Central University of Rajasthan.</li>
+                <li>Selected Academic representative of Mathematics department of Central University of Rajasthan for the academic session 2015-16.</li>
+                <li>Elected Student representative of Volleyball club for session 2015-17 at Central University of Rajasthan.</li>
             </ul>
 
-            <h3 style="font-size: 16px; margin-top: 15px;">Sports: [cite: 144]</h3>
+            <h3 style="font-size: 16px; margin-top: 15px;">Sports:</h3>
             <ul class="compact-list">
-                <li>Won Gold medal in "Cricket and Volleyball" in SRIJAN 2024 at Central university of Rajasthan. [cite: 145]</li>
-                <li>Participated in "Volleyball West Zone Championship 2022" at Maharastra [IN]. [cite: 146]</li>
-                <li>Participated in "Volleyball West Zone Championship 2019" at Nagpur [IN]. [cite: 147]</li>
-                <li>Won Gold medal in 2nd Annual Volleyball Festival 2018 held at Central University of Rajasthan. [cite: 148]</li>
-                <li>Won Gold medal in Volleyball Intra CURaj sports meet 2018 at Central University of Rajasthan. [cite: 149]</li>
-                <li>Won Gold medal in Volleyball Championship of the Central University in 2015, 2016 and 2017. [cite: 150]</li>
-                <li>Won Gold medal in 11 KM marathon organized by Adventure Sports Club at Central University of Rajasthan. [cite: 151]</li>
-                <li>Won Silver medal in "Chess" organized by "Chess club" at Central University of Rajasthan in 2016. [cite: 152]</li>
-                <li>Participated in "Volleyball West Zone Championship 2015" at Bhopal [IN]. [cite: 153]</li>
-                <li>Won Silver medal in "Sitoliya" organized by Department of Environmental Sciences in 2015. [cite: 154]</li>
-                <li>Won Silver Medal in Basketball event of "Intra CURaj Sports Meet 2014 at Central University of Rajasthan. [cite: 156]</li>
-                <li>Won Silver Medal in Volleyball event of "Intra CURaj Sports Meet2014" at Central University of Rajasthan. [cite: 157]</li>
-                <li>Won Silver Medal in Kabaddi event of "Intra CURaj Sports Meet - 2014" at Central University of Rajasthan. [cite: 158]</li>
+                <li>Won Gold medal in "Cricket and Volleyball" in SRIJAN 2024 at Central university of Rajasthan.</li>
+                <li>Participated in "Volleyball West Zone Championship 2022" at Maharastra [IN].</li>
+                <li>Participated in "Volleyball West Zone Championship 2019" at Nagpur [IN].</li>
+                <li>Won Gold medal in 2nd Annual Volleyball Festival 2018 held at Central University of Rajasthan.</li>
+                <li>Won Gold medal in Volleyball Intra CURaj sports meet 2018 at Central University of Rajasthan.</li>
+                <li>Won Gold medal in Volleyball Championship of the Central University in 2015, 2016 and 2017.</li>
+                <li>Won Gold medal in 11 KM marathon organized by Adventure Sports Club at Central University of Rajasthan.</li>
+                <li>Won Silver medal in "Chess" organized by "Chess club" at Central University of Rajasthan in 2016.</li>
+                <li>Participated in "Volleyball West Zone Championship 2015" at Bhopal [IN].</li>
+                <li>Won Silver medal in "Sitoliya" organized by Department of Environmental Sciences in 2015.</li>
+                <li>Won Silver Medal in Basketball event of "Intra CURaj Sports Meet 2014 at Central University of Rajasthan.</li>
+                <li>Won Silver Medal in Volleyball event of "Intra CURaj Sports Meet2014" at Central University of Rajasthan.</li>
+                <li>Won Silver Medal in Kabaddi event of "Intra CURaj Sports Meet - 2014" at Central University of Rajasthan.</li>
             </ul>
         </div>
     </div>
@@ -445,17 +514,17 @@
 
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
             htmlElement.setAttribute('data-theme', 'dark');
-            themeToggleBtn.innerText = '☀️ Light Mode';
+            themeToggleBtn.innerText = '☀️';
         }
 
         themeToggleBtn.addEventListener('click', () => {
             const currentTheme = htmlElement.getAttribute('data-theme');
             if (currentTheme === 'dark') {
                 htmlElement.setAttribute('data-theme', 'light');
-                themeToggleBtn.innerText = '🌙 Dark Mode';
+                themeToggleBtn.innerText = '🌙';
             } else {
                 htmlElement.setAttribute('data-theme', 'dark');
-                themeToggleBtn.innerText = '☀️ Light Mode';
+                themeToggleBtn.innerText = '☀️';
             }
         });
 
