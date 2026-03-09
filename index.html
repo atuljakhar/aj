@@ -2,503 +2,472 @@
 <html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Atul Jakhar</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Dr. Atul Jakhar - Resume</title>
     <style>
+        /* Apple-style CSS Variables */
         :root {
-            /* Apple Light Theme Colors */
-            --bg-color: #F5F5F7;
-            --card-bg: #FFFFFF;
-            --text-primary: #1D1D1F;
-            --text-secondary: #86868B;
-            --accent-color: #0066CC; /* Apple Link Blue */
-            --nav-bg: rgba(255, 255, 255, 0.72);
-            --border-color: rgba(0, 0, 0, 0.08);
-            --tag-bg: rgba(0, 102, 204, 0.08);
-            --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.04);
-            --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --bg-color: #f5f5f7;
+            --card-bg: #ffffff;
+            --text-primary: #1d1d1f;
+            --text-secondary: #86868b;
+            --accent: #0071e3;
+            --accent-hover: #0077ed;
+            --border-color: #d2d2d7;
+            --shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+            --modal-bg: rgba(255, 255, 255, 0.85);
+            --font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
         [data-theme="dark"] {
-            /* Apple Dark Theme Colors */
             --bg-color: #000000;
-            --card-bg: #1C1C1E;
-            --text-primary: #F5F5F7;
-            --text-secondary: #A1A1A6;
-            --accent-color: #2997FF;
-            --nav-bg: rgba(28, 28, 30, 0.72);
-            --border-color: rgba(255, 255, 255, 0.1);
-            --tag-bg: rgba(41, 151, 255, 0.15);
-            --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.2);
-            --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.4);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            --card-bg: #1c1c1e;
+            --text-primary: #f5f5f7;
+            --text-secondary: #a1a1a6;
+            --accent: #2997ff;
+            --accent-hover: #3a9fff;
+            --border-color: #38383a;
+            --shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+            --modal-bg: rgba(28, 28, 30, 0.85);
         }
 
         body {
-            /* Apple's System Font Stack */
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: var(--font-family);
             background-color: var(--bg-color);
             color: var(--text-primary);
+            margin: 0;
+            padding: 0;
             line-height: 1.5;
-            transition: background-color 0.4s ease, color 0.4s ease;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        /* --- GLASSMORPHISM NAVIGATION --- */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            height: 54px;
-            background-color: var(--nav-bg);
-            backdrop-filter: saturate(180%) blur(20px);
-            -webkit-backdrop-filter: saturate(180%) blur(20px);
-            border-bottom: 1px solid var(--border-color);
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: background-color 0.4s ease;
-        }
+        h1, h2, h3, h4 { font-weight: 600; margin-top: 0; }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
 
-        .nav-content {
-            width: 100%;
-            max-width: 980px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 24px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-primary);
-            font-size: 12px;
-            font-weight: 400;
-            letter-spacing: -0.01em;
-            opacity: 0.8;
-            transition: opacity 0.2s;
-        }
-
-        .nav-links a:hover {
-            opacity: 1;
-        }
-
-        .theme-btn {
-            background: none;
-            border: none;
-            color: var(--text-primary);
-            cursor: pointer;
-            font-size: 16px;
-            opacity: 0.8;
-            transition: opacity 0.2s;
-        }
-
-        .theme-btn:hover {
-            opacity: 1;
-        }
-
-        /* --- MAIN LAYOUT --- */
-        main {
-            max-width: 980px;
+        .container {
+            max-width: 860px;
             margin: 0 auto;
-            padding: 100px 20px 60px;
+            padding: 40px 20px 100px 20px;
         }
 
-        /* --- HERO SECTION --- */
-        .hero {
-            text-align: center;
-            padding: 60px 0;
-            animation: fadeIn 1s ease-out;
-        }
-
-        .avatar {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 24px;
-            box-shadow: var(--shadow-md);
-            border: 4px solid var(--card-bg);
-        }
-
-        .hero h1 {
-            font-size: 48px;
-            font-weight: 700;
-            letter-spacing: -0.015em;
-            margin-bottom: 8px;
-        }
-
-        .hero .subtitle {
-            font-size: 24px;
-            font-weight: 500;
-            color: var(--text-secondary);
-            letter-spacing: -0.01em;
-            margin-bottom: 8px;
-        }
-
-        .hero .location {
-            font-size: 16px;
-            color: var(--text-secondary);
-            margin-bottom: 24px;
-        }
-
-        .social-links {
+        /* Top Controls */
+        .controls {
             display: flex;
-            justify-content: center;
-            gap: 20px;
+            justify-content: flex-end;
+            margin-bottom: 20px;
         }
 
-        .social-links a {
+        .theme-toggle {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
             color: var(--text-primary);
-            font-size: 24px;
-            opacity: 0.7;
-            transition: transform 0.2s ease, opacity 0.2s ease;
-        }
-
-        .social-links a:hover {
-            opacity: 1;
-            transform: scale(1.1);
-            color: var(--accent-color);
-        }
-
-        /* --- CONTENT SECTIONS --- */
-        section {
-            margin-top: 40px;
-            padding-top: 40px;
-        }
-
-        .section-title {
-            font-size: 28px;
-            font-weight: 600;
-            letter-spacing: -0.01em;
-            margin-bottom: 24px;
-            text-align: center;
-        }
-
-        /* --- CARDS (Apple Style) --- */
-        .card {
-            background-color: var(--card-bg);
-            border-radius: 24px;
-            padding: 40px;
-            box-shadow: var(--shadow-sm);
-            margin-bottom: 24px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.4s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .about-text {
-            font-size: 17px;
-            line-height: 1.47059;
-            font-weight: 400;
-            letter-spacing: -0.022em;
-            color: var(--text-secondary);
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .about-text strong {
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-
-        /* --- LISTS / TIMELINES --- */
-        .list-item {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            padding: 24px 0;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .list-item:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-
-        .list-item:first-child {
-            padding-top: 0;
-        }
-
-        .item-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .item-title {
-            font-size: 20px;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-
-        .item-date {
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--text-secondary);
-        }
-
-        .item-subtitle {
-            font-size: 16px;
-            font-weight: 500;
-            color: var(--accent-color);
-        }
-
-        .item-desc {
-            font-size: 15px;
-            color: var(--text-secondary);
-            line-height: 1.5;
-            margin-top: 8px;
-        }
-
-        /* --- TAGS --- */
-        .tags-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            justify-content: center;
-            margin-top: 24px;
-        }
-
-        .tag {
-            background-color: var(--tag-bg);
-            color: var(--accent-color);
             padding: 8px 16px;
             border-radius: 20px;
+            cursor: pointer;
             font-size: 14px;
             font-weight: 500;
-            letter-spacing: -0.01em;
+            box-shadow: var(--shadow);
+            transition: all 0.2s ease;
+        }
+        .theme-toggle:hover { transform: scale(1.02); }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            border: 2px solid var(--card-bg);
+        }
+        .name { font-size: 32px; letter-spacing: -0.5px; margin-bottom: 8px; }
+        .title { font-size: 18px; color: var(--text-secondary); margin-bottom: 16px; }
+        .contact-info {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; font-size: 14px;
         }
 
-        .link-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--accent-color);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 15px;
-            margin-top: 16px;
+        /* Card Sections */
+        .section {
+            background-color: var(--card-bg);
+            border-radius: 18px;
+            padding: 24px 30px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow);
+            transition: background-color 0.3s ease;
+        }
+        .section-title {
+            font-size: 22px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
         }
 
-        .link-button:hover {
-            text-decoration: underline;
-        }
+        /* Lists */
+        ul { padding-left: 20px; margin: 0; }
+        .item-list { list-style: none; padding: 0; }
+        .item { margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--border-color); }
+        .item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+        .item-title { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+        .item-subtitle { font-size: 14px; color: var(--text-secondary); margin-bottom: 4px; }
+        
+        .compact-list li { margin-bottom: 8px; font-size: 14px; }
 
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* Collapsible sections */
+        details {
+            background-color: var(--bg-color);
+            border-radius: 12px;
+            padding: 10px 15px;
+            margin-bottom: 15px;
+            border: 1px solid var(--border-color);
+        }
+        summary {
+            font-weight: 600;
+            cursor: pointer;
+            outline: none;
+            color: var(--accent);
+        }
+        details > div { margin-top: 15px; }
+
+        /* Floating Share Button */
+        .share-btn-container {
+            position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 100;
+        }
+        .share-btn {
+            background-color: var(--accent); color: #ffffff; border: none; padding: 14px 28px;
+            border-radius: 30px; font-size: 16px; font-weight: 600; cursor: pointer;
+            box-shadow: 0 4px 14px rgba(0, 113, 227, 0.4); display: flex; align-items: center; gap: 8px;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+        .share-btn:hover { background-color: var(--accent-hover); transform: scale(1.05); }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            display: flex; justify-content: center; align-items: center; z-index: 1000;
+            opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+        .modal-content {
+            background: var(--modal-bg); padding: 30px; border-radius: 24px; text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); max-width: 90%; width: 320px;
+            border: 1px solid var(--border-color); transform: translateY(20px); transition: transform 0.3s ease;
+        }
+        .modal-overlay.active .modal-content { transform: translateY(0); }
+        .qr-code {
+            width: 200px; height: 200px; border-radius: 12px; margin: 20px auto;
+            background: white; padding: 10px;
+        }
+        .close-modal {
+            background: var(--bg-color); color: var(--text-primary); border: 1px solid var(--border-color);
+            padding: 8px 20px; border-radius: 20px; cursor: pointer; font-size: 14px; margin-top: 10px; font-weight: 500;
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none; /* Hide standard links on mobile to keep it clean */
-            }
-            .hero h1 { font-size: 36px; }
-            .hero .subtitle { font-size: 20px; }
-            .card { padding: 24px; }
-            .item-header { flex-direction: column; gap: 4px; }
+        @media (max-width: 600px) {
+            .container { padding: 20px 15px 90px 15px; }
+            .section { padding: 20px; }
+            .name { font-size: 28px; }
         }
     </style>
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="nav-content">
-            <a href="#" style="font-weight: 600; text-decoration: none; color: var(--text-primary); font-size: 16px;">AJ.</a>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#research">Research</a></li>
-                <li><a href="#teaching">Teaching</a></li>
-            </ul>
-            <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle Dark Mode">
-                <i class="fas fa-moon" id="theme-icon"></i>
-            </button>
+    <div class="container">
+        <div class="controls">
+            <button class="theme-toggle" id="themeToggle">🌙 Dark Mode</button>
         </div>
-    </nav>
 
-    <main>
-        <div class="hero">
-            <img src="https://pbs.twimg.com/profile_images/2007732931549392896/FfnLdurt_400x400.jpg" alt="Dr. Atul Jakhar" class="avatar">
-            <h1>Dr. Atul Jakhar</h1>
-            <div class="subtitle">National Postdoctoral Fellow</div>
-            <div class="location">IIT Madras • Chennai, India</div>
+        <div class="header">
+            <img src="IMG_0009.jpg" alt="Dr. Atul Jakhar" class="avatar">
+            <h1 class="name">Dr. Atul Jakhar [cite: 1]</h1>
+            <div class="title">National Post Doc Fellow <br> Department of Mathematics <br> Indian Instaitute of Technology, Madras (IITM) [cite: 1]</div>
             
-            <div class="social-links">
-                <a href="https://scholar.google.com/citations?user=2P_eyfoAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-                <a href="https://www.linkedin.com/in/dratuljakhar/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://github.com/atuljakhar" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="mailto:2019phdmt002@curaj.ac.in" title="Email"><i class="fas fa-envelope"></i></a>
+            <div class="contact-info">
+                <span>📧 <a href="mailto:dratuljakhar@gmail.com">dratuljakhar@gmail.com</a> [cite: 1]</span>
+                <span>📧 <a href="mailto:dratuljakhar@icloud.com">dratuljakhar@icloud.com</a> [cite: 1]</span><br>
+                <span>📱 +91-9145851458 (Mobile) [cite: 1]</span>
+                <span>🌐 <a href="https://www.atuljakhar.github.io/" target="_blank">Webpage</a> [cite: 1]</span>
+                <span>🎂 DOB: XX-XX-1996 [cite: 1]</span>
             </div>
         </div>
 
-        <section id="about">
-            <div class="card">
-                <div class="about-text">
-                    <p>My work sits at the intersection of classical mechanics and modern technology, specifically exploring <strong>Computational Fluid Mechanics (CFD)</strong> and the application of Artificial Intelligence in fluid dynamics.</p>
-                    <br>
-                    <p>I investigate the dynamic behavior of fluids through numerical methods and simulations, with a particular focus on instability and chaos. Beyond academia, I am a passionate athlete and motivational speaker, believing that the discipline required in sports translates directly to scientific rigor.</p>
-                </div>
-            </div>
-        </section>
+        <div class="section">
+            <h2 class="section-title">Research Interests [cite: 2]</h2>
+            <p>Chaos, Machine learning in Linear/Nonlinear instability analysis, Dynamical system, Physics Informed Neural network, Computational Fluid dynamics. [cite: 3]</p>
+        </div>
 
-        <section id="experience">
-            <h2 class="section-title">Academic Positions</h2>
-            <div class="card">
-                <div class="list-item">
-                    <div class="item-header">
-                        <div class="item-title">Postdoctoral Fellow</div>
-                        <div class="item-date">Dec 2025 — Present</div>
-                    </div>
-                    <div class="item-subtitle">Indian Institute of Technology (IIT) Madras</div>
-                    <div class="item-desc">Conducting advanced research in fluid dynamics, focusing on AI-driven simulations and stability analysis.</div>
-                </div>
+        <div class="section">
+            <h2 class="section-title">Education [cite: 4]</h2>
+            <ul class="item-list">
+                <li class="item">
+                    <div class="item-title">Ph.D. (Mathematics) (82.3%) [cite: 5]</div>
+                    <div class="item-subtitle">August 2019 - May 2024. [cite: 11]</div>
+                    <div class="item-subtitle">Central University of Rajasthan, Ajmer (CURAJ) [cite: 8]</div>
+                    <div class="item-subtitle">Thesis Title: A Study of Instability in Newtonian Fluid [cite: 6]</div>
+                    <div class="item-subtitle">Thesis Advisor Prof. Anand Kumar [cite: 7]</div>
+                </li>
+                <li class="item">
+                    <div class="item-title">Integrated M.Sc. (Mathematics) (cgpa 3.89 out of 6) [cite: 9]</div>
+                    <div class="item-subtitle">Central University of Rajasthan, Ajmer (CURAJ) [cite: 15]</div>
+                    <ul>
+                        <li><strong>Integrated M.Sc. (Mathematics Major)</strong> [cite: 10] (Jan. 2018 - June 2018. [cite: 12]) <br> M.Sc. Thesis Title: Study of heat and mass transfer of free convection through vertical annuli in presence of heat source, chemical reaction and Newtonian heating. [cite: 13] <br> M.Sc. Thesis Advisor: Prof. Anand Kumar [cite: 14]</li>
+                        <li><strong>Integrated M.Sc. (Mathematics Minor project)</strong> [cite: 16] (Jan. 2016 - June 2016. [cite: 17]) <br> Int. M.Sc. Minor Thesis Title: Study of heat transfer from vertical concentric annuli by hankel transform. [cite: 18] <br> Int. M.Sc. Minor Thesis Advisor Prof. Anand Kumar [cite: 19] <br> Central University of Rajasthan, Ajmer (CURAJ) [cite: 20]</li>
+                    </ul>
+                </li>
+                <li class="item">
+                    <div class="item-title">Senior Secondary School Tagore children academy, Surajgadh (80.40%) [cite: 21]</div>
+                    <div class="item-subtitle">2012-13 [cite: 24]</div>
+                </li>
+            </ul>
+        </div>
 
-                <div class="list-item">
-                    <div class="item-header">
-                        <div class="item-title">Assistant Professor</div>
-                        <div class="item-date">Sept 2024 — Oct 2025</div>
-                    </div>
-                    <div class="item-subtitle">Dayananda Sagar University</div>
-                    <div class="item-desc">Taught undergraduate courses including Linear Algebra, Differential Equations, and Multivariate Calculus. Developed curriculum for "Linear Algebra; Differential Equations."</div>
-                </div>
-            </div>
-        </section>
+        <div class="section">
+            <h2 class="section-title">Teaching Experience [cite: 22]</h2>
+            <ul class="item-list">
+                <li class="item">
+                    <div class="item-title">Assistant Professor: [cite: 23]</div>
+                    <div class="item-subtitle">Dayananda Sagar University, Harohalli, Bengaluru. [cite: 25]</div>
+                    <ul>
+                        <li>Linear algebra and Differential equation (LADE)- 1st year B.Tech. DSU, Bengaluru (2024-2025). [cite: 26]</li>
+                        <li>Single and Multivariate Calculus (SMC) 1st year B.Tech. DSU, Bengaluru (2024-2025). [cite: 27]</li>
+                    </ul>
+                </li>
+                <li class="item">
+                    <div class="item-title">M.Sc. Student guided: [cite: 28]</div>
+                    <div class="item-subtitle">Mr. Manoharat Central University of Rajasthan [cite: 29] (January-May, 2025) [cite: 30]</div>
+                    <div class="item-subtitle">Title: Nonlinear Influence of Double-Diffusive convection under Rotation and temperature modulation [cite: 31]</div>
+                </li>
+                <li class="item">
+                    <div class="item-title">Teaching Assistant [cite: 31]</div>
+                    <ul>
+                        <li>MAT700 Course (Research Methodology in Mathematics) at CURAJ, Ajmer (2022-23, 2023-34). [cite: 32]</li>
+                        <li>MAT303 Course (Analytical geometry) at Central University of Rajasthan. (2021-22, 2022-23). [cite: 33]</li>
+                        <li>IMM484/MSM424/MBM424 Course (Partial Differential Equations) at CURAJ, Ajmer (2021-22). [cite: 34]</li>
+                        <li>MTH603 Course (Calculus of variation & Integral equations) at CURAJ, Ajmer (2021-22, 2022-23). [cite: 35]</li>
+                        <li>MAT102 Course (Mathematics I) at CURAJ, Ajmer (2020-21). [cite: 36]</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
 
-        <section id="education">
-            <h2 class="section-title">Education</h2>
-            <div class="card">
-                <div class="list-item">
-                    <div class="item-header">
-                        <div class="item-title">Ph.D. in Mathematics</div>
-                        <div class="item-date">2019 — 2024</div>
-                    </div>
-                    <div class="item-subtitle">Central University of Rajasthan</div>
-                    <div class="item-desc"><strong>Thesis:</strong> A Study of Instability in Newtonian Fluid.<br>Focus: Linear and Non-linear instability, Chaos theory.</div>
+        <div class="section">
+            <h2 class="section-title">Research Papers [cite: 37]</h2>
+            <p style="font-size: 14px; margin-bottom: 10px;">Published/Accepted: [cite: 38]</p>
+            <details>
+                <summary>View All 15 Publications</summary>
+                <div>
+                    <ul class="compact-list">
+                        <li>1. Atul Jakhar, Anand Kumar: Instability analysis of double diffusive convection under time dependent solute boundary conditions in the presence of internal heat generator, Physics of Fluids, 35 (7): 077101 (2023). [cite: 39] https://doi.org/10.1063/5.0155264 (Q1, SCI) [cite: 40]</li>
+                        <li>2. Atul Jakhar, Anand Kumar, VK. Gupta; Study of weakly nonlinear double-diffusive magnetoconvection under concentration modulation, Heat Transfer, 52: 5500-5519 (2023). [cite: 41] https://doi:10.1002/htj.22939 (Q2, SCI) [cite: 42]</li>
+                        <li>3. Atul Jakhar, Anand Kumar, Vinod K. Gupta: Weakly nonlinear instability analysis of triple diffusive convection under internal heat generator and modulated boundaries, Physics of Fluids, 35 (10): 104105 (2023). [cite: 44] https://doi.org/10.1063/5.0169618 (Q1, SCI) [cite: 45]</li>
+                        <li>4. Atul Jakhar, Anand Kumar, Priyanka Joshi Study of weakly nonlinear double-diffusive magneto-convection with Throughflow under concentration modulation, Nonlinear Engineering, 2024: 2192-8029. [cite: 46] https://doi.org: 10.1515/nleng-2024-0013 (Q2, SCI) [cite: 47]</li>
+                        <li>5. Anupama Singh, Atul Jakhar, Anand Kumar*: Effect of modulated boundary on heat and mass transport of Walter-B viscoelastic fluid saturated in porous medium, Nonlinear Engineering, 2024. https://doi.org: 10.1515/nleng-2024-0014 (Q2, SCI) [cite: 48]</li>
+                        <li>6. Anurag Shukla, Ashok Singh, Anand Kumar, Atul Jakhar*; Influence of Chemical Reaction on Transient Natural Convective Flow in an Infinite Vertical Cylinder Packed with Porous Material, Numerical Heat Transfer, Part A, 2024. https://doi.org:10.1080/10407782.2024.2388244 (Q2, SCI) [cite: 49]</li>
+                        <li>7. Atul Jakhar, Anurag, Anand Kumar*; Weakly nonlinear instability analysis in Triple diffusive convection under gravity modulation in presence of internal heat source, Heat Transfer, 2024. http://dx.doi.org/ 10.1002/htj.23170 (Q2, SCI) [cite: 50]</li>
+                        <li>8. V.K. Sukariya, Anurag, Atul Jakhar, Anand Kumar, Effect of Hall current generated by a radial magnetic field on transient natural convection between vertical annuli, Eur. [cite: 51] Phys. J. Plus, 139:996 (2024). https://doi.org/10.1140/epjp/s13360-024-05786-9 [cite: 52]</li>
+                        <li>9. Atul Jakhar, Vijay Kumar, Suresh, Anand Kumar, Anurag*, Study of MHD Williamson fluid flow over a stretched cylinder with Hall, thermal dynamics, and chemical reactions effects, Journal of Thermal Analysis and Calorimetry (2024). (Q2, SCI)https://doi.org/10.1007/s10973-024-13851- [cite: 53]</li>
+                        <li>10. Atul Jakhar, Anand Kumar, VK. Sukariya, Anurag, Study of Heat and Mass transfer of transient free convection through vertical Annuli in presence of Heat Source, Chemical Reaction and Newtonian Heating, Heat Transfer (2025). [cite: 54] (Q2, SCI) (https://doi.org/10.1002/htj.23283) [cite: 55]</li>
+                        <li>11. Sukariya, V.K., Jakhar, A., sharma, P., Kumar, A., Anurag, Numerical exploration of heat source/sink and mixed convection effects on thermally stratified $Cu-Al_{2}O_{3}/H_{2}O$ hybrid nanofluid flow over a vertical stretching cylinder subjected to a radial magnetic field, Z Angew Math Mech. [cite: 56] 105, e202400963 (2025). (Q2, SCI) (https://doi.org/10.1002/zamm.202400963) [cite: 57]</li>
+                        <li>12. Anurag, Singh, A., Kumar, A. Jakhar, A., Investigating the nonlinear behavior of microorganisms in buoyant fluids. Multiscale and Multidiscip. [cite: 58] Model. Exp. and Des., 8, 226 (2025). (Q2, SCI) https://doi.org/10.1007/s41939-025-00825-z [cite: 59]</li>
+                        <li>13. Anurag, Sukariya, V.K., Lata, J., Kumar, A., Jakhar, A., Effect of hall current and radial magnetic field on $MoS_{2}-SiO_{2}/H_{2}O$ hybrid nanofluid flow over a vertical stretching cylinder, J Braz. [cite: 60] Soc. Mech. Sci. Eng., 47, 187 (2025). (Q2, SCI) https://doi.org/10.1007/s40430-025-05504-1 [cite: 61]</li>
+                        <li>14. Jakhar A., Anurag, Sukariya, VK., Kumar, A., Study of bio-convection dynamics under time-varying concentration gradient, Chinese journal of Physics, 2025. (Q1, SCI) https://doi.org/10.1016/j.cjph. [cite: 62] 2025.04.031 [cite: 63]</li>
+                        <li>15. Anurag, Sukariya, VK., Kumar A., Rathore, T., Jakhar, A., A Numerical Study on the Influence of Viscous Dissipation and Hall Current Induced by a Radial Magnetic Field on MHD Flow over a Stretching Cylinder, ZAMM Journal of Applied Mathematics and Mechanics, 2026. (Q2, SCI) https://doi.org/ 10.1002/zamm.70351 [cite: 64]</li>
+                    </ul>
+                    <p style="font-size: 12px; font-style: italic; margin-top: 10px;">* denotes corresponding author [cite: 65]</p>
                 </div>
+            </details>
+        </div>
 
-                <div class="list-item">
-                    <div class="item-header">
-                        <div class="item-title">Integrated M.Sc. in Mathematics</div>
-                        <div class="item-date">2013 — 2018</div>
-                    </div>
-                    <div class="item-subtitle">Central University of Rajasthan</div>
-                    <div class="item-desc">Majored in heat and mass transfer of free convection and numerical analysis.</div>
+        <div class="section">
+            <h2 class="section-title">Fellowships & Achievements [cite: 66]</h2>
+            <ul class="compact-list">
+                <li>ANRF National Postdoctoral Fellowship 2025 by Govt. of India. [cite: 67]</li>
+                <li>Awarded the AMS Grant for attending ICM 2026 at Philadelphia, Pennsylvania, USA. [cite: 68]</li>
+                <li>Awarded UGC University Scholarship for Ph.D. at Central University of Rajasthan. (2019) [cite: 69]</li>
+                <li>Qualified CSIR-UGC National Eligibility Test (NET) examination for PhD fellowship conducted by CSIR HRDG, Govt. of India. (2019) [cite: 70]</li>
+                <li>Qualified Central universities common entrance test 2019 for Ph.D. fellowship. [cite: 72]</li>
+                <li>Attended Summer Program in mathematics (SPIM)-2017 by Harishchandra Research Institute, Allahabad, India. [cite: 73]</li>
+                <li>Honoured academic representative of department of mathematics at Central University of Rajasthan, India in 2015. [cite: 74]</li>
+                <li>Awarded Summer Research fellowship at Indian Institute of Science Education & Research (IISER) Mohali in 2014. [cite: 75]</li>
+                <li>Awarded winter Research fellow at Birla Institute of Science & Technology (BITS) Pilani in 2014. [cite: 76]</li>
+                <li>Awarded Central Sector Scholarship for University Students 2013 in Basic Science offered by Ministry of Resource Development (MHRD), Govt of India. [cite: 77]</li>
+                <li>Qualified Central University common entrance test-2013 for Integrated M.Sc. [cite: 78]</li>
+                <li>Secured $100/100$ marks in Mathematics at Middle level in RBSE (Board of secondary education, Rajasthan, India). [cite: 79]</li>
+                <li>"Academic Excellency Awards" at school level up to $11^{th}$ standard. [cite: 80]</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Selected Talks & Presentations [cite: 81]</h2>
+            <ul class="item-list">
+                <li class="item">
+                    <div class="item-title">1. Title: Study of heat and mass transfer of free convection through vertical annuli in presence of heat source, chemical reaction and Newtonian heating [cite: 82]</div>
+                    <div class="item-subtitle">Venue: $35^{th}$ Annual conference of RMS 2020, CURAJ, Ajmer. [cite: 83]</div>
+                </li>
+                <li class="item">
+                    <div class="item-title">2. Title: Effect of non-uniform heating and ramped concentration on magneto double diffusive-convection flow of Casson fluid over a vertical cone [cite: 84]</div>
+                    <div class="item-subtitle">Venue: Complex Dynamical Systems and Applications (CDSA 2020), CURAJ, Ajmer. [cite: 85]</div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Selected Workshops/Conferences/Webinars Attended [cite: 86]</h2>
+            <details>
+                <summary>View All 10 Events</summary>
+                <div>
+                    <ul class="compact-list">
+                        <li>FDP: Exploring the Foundations and Applications of Quantum Computing: Bridging Theory and Practice AICTE Training and Learning (ATAL) Academy, Jain University, Bangalore [IN] [cite: 87] (Sept.08-13, 2025) [cite: 88]</li>
+                        <li>FDP: Entangle 25: A Hands-on workshop on Quantum Computing and Emerging Paradigms. Dayananda Sagar University, Bangalore [IN] [cite: 89] (Aug. 06-10, 2025) [cite: 91]</li>
+                        <li>Workshop: Asian and European Schools in Mathematics (AESIM-2023) -Birla Institute of Technology, Pilani [IN] [cite: 90] (Dec. 28, 2023- Jan. 06, 2024) [cite: 92]</li>
+                        <li>Workshop: International Workshop on Celestial Mechanics and Dynamical Astronomy (IWCMDA-2023) Central University of Rajasthan, Ajmer [IN] [cite: 93] (January 06-08, 2023). [cite: 96]</li>
+                        <li>Webinar: Applications of Stochastic Models and Queueing Theory Central University of Rajasthan, Ajmer [IN] [cite: 94] (Oct. 11- Nov. 11, 2022). [cite: 98]</li>
+                        <li>Workshop: Three day National level Workshop on MATLAB for beginners Bharathidasan University [IN] [cite: 95] (July 28-30, 2020). [cite: 99]</li>
+                        <li>Workshop: Indian Women and Mathematics: Regional Workshop on Research and Opportunities IIT Bhilai [IN] [cite: 97] (Feb. 21, 2021). [cite: 100]</li>
+                        <li>Conference: Virtual Heidelberg Laureate Forum 2020 [cite: 101] Heidelberg Laureate Forum Foundation, Germany [cite: 102] (Sept. 21-25, 2020). [cite: 104]</li>
+                        <li>Conference: Complex Dynamical Systems and Applications (CDSA 2020) [cite: 103] Central University of Rajasthan, Ajmer [IN] [cite: 105] (Feb. 21-23, 2020). [cite: 106]</li>
+                        <li>Conference: International conference on class groups of number fields and related [cite: 107] topics [cite: 108] Harish Chandra Research Institute [IN] [cite: 109] (Oct. 16-19, 2019). [cite: 110]</li>
+                        <li>Workshop: Group and Symmetries [cite: 111] - National Academy of Science [IN] [cite: 112] (Dec. 21-23, 2017). [cite: 113]</li>
+                        <li>Workshop: National Program on Differential Equations Theory, Computation and Application - LNMIIT, Jaipur [IN] [cite: 114] (May 18- June 06, 2017) [cite: 115]</li>
+                    </ul>
                 </div>
-            </div>
-        </section>
+            </details>
+        </div>
 
-        <section id="research">
-            <h2 class="section-title">Research Interests</h2>
-            <div class="card" style="text-align: center;">
-                <p style="color: var(--text-secondary); font-size: 16px;">My research explores the mathematical modeling of fluid systems.</p>
-                
-                <div class="tags-container">
-                    <span class="tag">Computational Fluid Dynamics</span>
-                    <span class="tag">Linear Instability</span>
-                    <span class="tag">Non-linear Instability</span>
-                    <span class="tag">Chaos Theory</span>
-                    <span class="tag">Physics-Informed Neural Networks</span>
-                    <span class="tag">Numerical Simulations</span>
+        <div class="section">
+            <h2 class="section-title">Projects & Internships [cite: 117]</h2>
+            <details>
+                <summary>View Projects</summary>
+                <div>
+                    <ul class="item-list">
+                        <li class="item">
+                            <div class="item-title">Project: Study of Heat and Mass transfer through a vertical annuli in presence of chemical reaction and Newtonian heat Central University of Rajasthan, Ajmer</div>
+                            <div class="item-subtitle">Project supervisor: Dr. Anand Kumar [cite: 118] (Jan.-May, 2018). [cite: 122]</div>
+                        </li>
+                        <li class="item">
+                            <div class="item-title">Internship: Summer Programme in Mathematics (SPIM)</div>
+                            <div class="item-subtitle">Harish Chandra Research Institute, Prayagraj [IN] [cite: 119] (June-July, 2017). [cite: 123]</div>
+                        </li>
+                        <li class="item">
+                            <div class="item-title">Project: A Study of Fractional Differential Equations</div>
+                            <div class="item-subtitle">Birla Institute of Science and Technology, Pilani [IN] [cite: 120] <br> Project supervisor: Prof. Devendra Kumar [cite: 121] (May-June, 2016). [cite: 124]</div>
+                        </li>
+                        <li class="item">
+                            <div class="item-title">Project: Study of heat transfer from vertical concentric annuli by hankel transform</div>
+                            <div class="item-subtitle">Central university of Rajasthan, Ajmer [IN] [cite: 128] <br> Project supervisor: Dr. Anand Kumar [cite: 129] (Jan.- May, 2016). [cite: 125]</div>
+                        </li>
+                        <li class="item">
+                            <div class="item-title">Project: Basics of B-splines for Numerical Solution of BVPs using MATLAB</div>
+                            <div class="item-subtitle">Birla Institute of Science and Technology, Pilani [IN] [cite: 130] <br> Project supervisor: Prof. Devendra Kumar [cite: 131] (Dec. 2014- Jan. 2015). [cite: 126]</div>
+                        </li>
+                        <li class="item">
+                            <div class="item-title">Project: Group Theory and it's applications</div>
+                            <div class="item-subtitle">Indian Institute of Science Education and Research, Mohali [IN] [cite: 132] <br> Project supervisor: Prof. Sudesh Kaur Khanduja [cite: 133] (May-July, 2014). [cite: 127]</div>
+                        </li>
+                    </ul>
                 </div>
+            </details>
+        </div>
 
-                <a href="https://scholar.google.com/citations?user=2P_eyfoAAAAJ&hl=en" target="_blank" class="link-button">
-                    View Publications on Google Scholar <i class="fas fa-chevron-right" style="font-size: 12px;"></i>
-                </a>
-            </div>
-        </section>
+        <div class="section">
+            <h2 class="section-title">Technical Skills [cite: 134]</h2>
+            <ul class="compact-list">
+                <li>Programming: Scilab, Mathematica, Matlab, Latex, C, C++, Python. [cite: 135]</li>
+                <li>Familiar with macOS, Windows, Linux & Android, HTML 5, MS Office, Libre Office. [cite: 136]</li>
+            </ul>
+        </div>
 
-        <section id="teaching">
-            <h2 class="section-title">Teaching History</h2>
-            <div class="card">
-                <div class="list-item">
-                    <div class="item-header">
-                        <div class="item-title">Linear Algebra and Differential Equations</div>
-                        <div class="item-date">Aug 2024 — Dec 2024</div>
-                    </div>
-                    <div class="item-subtitle">B.Tech Course</div>
-                </div>
+        <div class="section">
+            <h2 class="section-title">Other Academics Services and Sports Activities [cite: 137]</h2>
+            
+            <h3 style="font-size: 16px; margin-top: 15px;">Academics: [cite: 138]</h3>
+            <ul class="compact-list">
+                <li>Nominated Student Council Member of Ph.D. Scholars for academic session 2022-23. [cite: 139]</li>
+                <li>Organized SRIJAN- 2022, an annual festival of Central University of Rajasthan. [cite: 140]</li>
+                <li>Elected Student representative of Volleyball club of Central University of Rajasthan for the academic year 2019-22. [cite: 141]</li>
+                <li>Organized Math-Earth 2018, an annual festival of mathematics department at Central University of Rajasthan. [cite: 142]</li>
+                <li>Selected Academic representative of Mathematics department of Central University of Rajasthan for the academic session 2015-16. [cite: 143]</li>
+                <li>Elected Student representative of Volleyball club for session 2015-17 at Central University of Rajasthan. [cite: 144]</li>
+            </ul>
 
-                <div class="list-item">
-                    <div class="item-header">
-                        <div class="item-title">Single and Multivariate Calculus</div>
-                        <div class="item-date">Feb 2025 — June 2025</div>
-                    </div>
-                    <div class="item-subtitle">B.Tech Course</div>
-                </div>
+            <h3 style="font-size: 16px; margin-top: 15px;">Sports: [cite: 144]</h3>
+            <ul class="compact-list">
+                <li>Won Gold medal in "Cricket and Volleyball" in SRIJAN 2024 at Central university of Rajasthan. [cite: 145]</li>
+                <li>Participated in "Volleyball West Zone Championship 2022" at Maharastra [IN]. [cite: 146]</li>
+                <li>Participated in "Volleyball West Zone Championship 2019" at Nagpur [IN]. [cite: 147]</li>
+                <li>Won Gold medal in 2nd Annual Volleyball Festival 2018 held at Central University of Rajasthan. [cite: 148]</li>
+                <li>Won Gold medal in Volleyball Intra CURaj sports meet 2018 at Central University of Rajasthan. [cite: 149]</li>
+                <li>Won Gold medal in Volleyball Championship of the Central University in 2015, 2016 and 2017. [cite: 150]</li>
+                <li>Won Gold medal in 11 KM marathon organized by Adventure Sports Club at Central University of Rajasthan. [cite: 151]</li>
+                <li>Won Silver medal in "Chess" organized by "Chess club" at Central University of Rajasthan in 2016. [cite: 152]</li>
+                <li>Participated in "Volleyball West Zone Championship 2015" at Bhopal [IN]. [cite: 153]</li>
+                <li>Won Silver medal in "Sitoliya" organized by Department of Environmental Sciences in 2015. [cite: 154]</li>
+                <li>Won Silver Medal in Basketball event of "Intra CURaj Sports Meet 2014 at Central University of Rajasthan. [cite: 156]</li>
+                <li>Won Silver Medal in Volleyball event of "Intra CURaj Sports Meet2014" at Central University of Rajasthan. [cite: 157]</li>
+                <li>Won Silver Medal in Kabaddi event of "Intra CURaj Sports Meet - 2014" at Central University of Rajasthan. [cite: 158]</li>
+            </ul>
+        </div>
+    </div>
 
-                <div class="list-item">
-                    <div class="item-header">
-                        <div class="item-title">Transformations and Numerical Techniques</div>
-                        <div class="item-date">Aug 2025 — Oct 2025</div>
-                    </div>
-                    <div class="item-subtitle">B.Tech Course</div>
-                </div>
-            </div>
-        </section>
-    </main>
+    <div class="share-btn-container">
+        <button class="share-btn" id="openShareModal">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="18" cy="5" r="3"></circle>
+                <circle cx="6" cy="12" r="3"></circle>
+                <circle cx="18" cy="19" r="3"></circle>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+            </svg>
+            Share Profile
+        </button>
+    </div>
+
+    <div class="modal-overlay" id="shareModal">
+        <div class="modal-content">
+            <h3 style="margin-top: 0;">Scan to Connect</h3>
+            <p style="color: var(--text-secondary); font-size: 14px;">Dr. Atul Jakhar's Contact & Profile</p>
+            <img src="adobe-express-qr-code.PNG" alt="QR Code" class="qr-code">
+            <button class="close-modal" id="closeShareModal">Close</button>
+        </div>
+    </div>
 
     <script>
-        // Theme Toggling Logic
-        const htmlEl = document.documentElement;
-        const themeIcon = document.getElementById('theme-icon');
+        // Theme Toggle Logic
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement;
 
-        function toggleTheme() {
-            const currentTheme = htmlEl.getAttribute('data-theme');
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            
-            htmlEl.setAttribute('data-theme', newTheme);
-            
-            if (newTheme === 'dark') {
-                themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun');
-            } else {
-                themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon');
-            }
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            htmlElement.setAttribute('data-theme', 'dark');
+            themeToggleBtn.innerText = '☀️ Light Mode';
         }
 
-        // Smooth scroll for nav links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    const navHeight = 60; // Offset for sticky nav
-                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                htmlElement.setAttribute('data-theme', 'light');
+                themeToggleBtn.innerText = '🌙 Dark Mode';
+            } else {
+                htmlElement.setAttribute('data-theme', 'dark');
+                themeToggleBtn.innerText = '☀️ Light Mode';
+            }
+        });
+
+        // Share Modal Logic
+        const modal = document.getElementById('shareModal');
+        const openBtn = document.getElementById('openShareModal');
+        const closeBtn = document.getElementById('closeShareModal');
+
+        openBtn.addEventListener('click', () => modal.classList.add('active'));
+        closeBtn.addEventListener('click', () => modal.classList.remove('active'));
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) modal.classList.remove('active');
         });
     </script>
 </body>
