@@ -1,0 +1,329 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1">&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1">&lt;title&gt;Dr. Atul Jakhar | Postdoctoral Researcher&lt;/title&gt;</p>
+<p class="p1">&lt;meta name="description" content="Dr. Atul Jakhar — Postdoctoral Researcher in fluid dynamics, heat &amp; mass transfer, MHD and nanofluids."&gt;</p>
+<p class="p1">&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;</p>
+<p class="p1">&lt;link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"&gt;</p>
+<p class="p1">&lt;style&gt;</p>
+<p class="p1">:root{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--bg:#070b14; --card:rgba(255,255,255,.045);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--border:rgba(255,255,255,.09); --txt:#e8edf6; --muted:#93a0b8;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--acc:#5eead4; --acc2:#818cf8; --acc3:#f472b6;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--grad:linear-gradient(120deg,var(--acc),var(--acc2),var(--acc3));</p>
+<p class="p1">}</p>
+<p class="p1">*{margin:0;padding:0;box-sizing:border-box}</p>
+<p class="p1">html{scroll-behavior:smooth}</p>
+<p class="p1">body{background:var(--bg);color:var(--txt);font-family:'Inter',sans-serif;overflow-x:hidden}</p>
+<p class="p1">h1,h2,h3{font-family:'Sora',sans-serif}</p>
+<p class="p1">::selection{background:var(--acc2);color:#fff}</p>
+<p class="p2"><br></p>
+<p class="p1">/* Animated background */</p>
+<p class="p1">.bg-orbs{position:fixed;inset:0;z-index:-1;overflow:hidden}</p>
+<p class="p1">.orb{position:absolute;border-radius:50%;filter:blur(110px);opacity:.35;animation:drift 18s ease-in-out infinite alternate}</p>
+<p class="p1">.orb.o1{width:520px;height:520px;background:#14b8a6;top:-160px;left:-120px}</p>
+<p class="p1">.orb.o2{width:460px;height:460px;background:#6366f1;bottom:-140px;right:-100px;animation-delay:-6s}</p>
+<p class="p1">.orb.o3{width:340px;height:340px;background:#db2777;top:40%;left:55%;animation-delay:-12s;opacity:.22}</p>
+<p class="p1">@keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(70px,-60px) scale(1.15)}}</p>
+<p class="p2"><br></p>
+<p class="p1">/* Floating tab bar */</p>
+<p class="p1">.tabbar{position:fixed;top:18px;left:50%;transform:translateX(-50%);z-index:100;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>display:flex;gap:4px;padding:8px;border-radius:999px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>background:rgba(13,18,32,.6);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>border:1px solid var(--border);box-shadow:0 8px 32px rgba(0,0,0,.45);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>animation:dropIn .9s cubic-bezier(.2,.9,.3,1.2)}</p>
+<p class="p1">@keyframes dropIn{from{opacity:0;transform:translate(-50%,-40px)}to{opacity:1;transform:translate(-50%,0)}}</p>
+<p class="p1">.tabbar a{font-size:.85rem;font-weight:500;color:var(--muted);text-decoration:none;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>padding:9px 16px;border-radius:999px;transition:.3s}</p>
+<p class="p1">.tabbar a:hover{color:var(--txt);background:rgba(255,255,255,.07)}</p>
+<p class="p1">.tabbar a.active{color:#06121a;background:var(--grad);background-size:200% 200%;animation:gradShift 5s ease infinite;font-weight:600}</p>
+<p class="p1">@keyframes gradShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}</p>
+<p class="p2"><br></p>
+<p class="p1">/* Hero */</p>
+<p class="p1">.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 20px 60px}</p>
+<p class="p1">.avatar{width:128px;height:128px;border-radius:50%;display:grid;place-items:center;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-family:'Sora';font-size:2.4rem;font-weight:800;color:#06121a;background:var(--grad);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>background-size:200% 200%;animation:gradShift 6s ease infinite,float 5s ease-in-out infinite;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>box-shadow:0 0 60px rgba(94,234,212,.35);margin-bottom:28px}</p>
+<p class="p1">@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}</p>
+<p class="p1">.hero h1{font-size:clamp(2.4rem,6vw,4.2rem);font-weight:800;line-height:1.1}</p>
+<p class="p1">.hero h1 span{background:var(--grad);background-size:200% 200%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gradShift 6s ease infinite}</p>
+<p class="p1">.type-line{margin-top:16px;font-size:clamp(1rem,2.4vw,1.3rem);color:var(--muted);min-height:1.6em}</p>
+<p class="p1">.cursor{display:inline-block;width:2px;height:1.1em;background:var(--acc);vertical-align:-3px;animation:blink .8s step-end infinite}</p>
+<p class="p1">@keyframes blink{50%{opacity:0}}</p>
+<p class="p1">.hero-cta{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center}</p>
+<p class="p1">.btn{padding:13px 28px;border-radius:999px;font-weight:600;font-size:.95rem;text-decoration:none;transition:.3s;display:inline-block}</p>
+<p class="p1">.btn-fill{background:var(--grad);background-size:200% 200%;animation:gradShift 6s ease infinite;color:#06121a}</p>
+<p class="p1">.btn-fill:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(129,140,248,.4)}</p>
+<p class="p1">.btn-line{border:1px solid var(--border);color:var(--txt)}</p>
+<p class="p1">.btn-line:hover{border-color:var(--acc);color:var(--acc);transform:translateY(-3px)}</p>
+<p class="p1">.scroll-hint{margin-top:64px;color:var(--muted);font-size:.8rem;animation:float 2.5s ease-in-out infinite}</p>
+<p class="p2"><br></p>
+<p class="p1">/* Sections */</p>
+<p class="p1">section{max-width:1060px;margin:0 auto;padding:96px 24px}</p>
+<p class="p1">.sec-tag{font-size:.78rem;letter-spacing:3px;text-transform:uppercase;color:var(--acc);font-weight:600}</p>
+<p class="p1">.sec-title{font-size:clamp(1.7rem,4vw,2.5rem);font-weight:700;margin:10px 0 36px}</p>
+<p class="p1">.reveal{opacity:0;transform:translateY(36px);transition:opacity .8s ease,transform .8s ease}</p>
+<p class="p1">.reveal.in{opacity:1;transform:none}</p>
+<p class="p2"><br></p>
+<p class="p1">/* About */</p>
+<p class="p1">.about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:36px;align-items:start}</p>
+<p class="p1">.about-grid p{color:var(--muted);line-height:1.8;margin-bottom:14px}</p>
+<p class="p1">.stats{display:grid;grid-template-columns:1fr 1fr;gap:14px}</p>
+<p class="p1">.stat{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:22px;text-align:center;transition:.3s}</p>
+<p class="p1">.stat:hover{transform:translateY(-5px);border-color:var(--acc)}</p>
+<p class="p1">.stat b{display:block;font-family:'Sora';font-size:1.9rem;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}</p>
+<p class="p1">.stat span{font-size:.8rem;color:var(--muted)}</p>
+<p class="p2"><br></p>
+<p class="p1">/* Cards */</p>
+<p class="p1">.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}</p>
+<p class="p1">.card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:28px;transition:.35s;position:relative;overflow:hidden}</p>
+<p class="p1">.card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(94,234,212,.08),transparent 55%);opacity:0;transition:.35s}</p>
+<p class="p1">.card:hover{transform:translateY(-7px);border-color:rgba(94,234,212,.4);box-shadow:0 18px 44px rgba(0,0,0,.4)}</p>
+<p class="p1">.card:hover::before{opacity:1}</p>
+<p class="p1">.card .ico{font-size:1.7rem;margin-bottom:14px}</p>
+<p class="p1">.card h3{font-size:1.08rem;margin-bottom:10px}</p>
+<p class="p1">.card p{font-size:.9rem;color:var(--muted);line-height:1.7}</p>
+<p class="p2"><br></p>
+<p class="p1">/* Publications */</p>
+<p class="p1">.pub{display:flex;gap:18px;background:var(--card);border:1px solid var(--border);border-radius:18px;padding:22px;margin-bottom:14px;transition:.3s}</p>
+<p class="p1">.pub:hover{transform:translateX(8px);border-color:var(--acc2)}</p>
+<p class="p1">.pub .yr{font-family:'Sora';font-weight:700;color:var(--acc);white-space:nowrap}</p>
+<p class="p1">.pub h3{font-size:1rem;margin-bottom:6px;line-height:1.45}</p>
+<p class="p1">.pub p{font-size:.85rem;color:var(--muted);margin-bottom:6px}</p>
+<p class="p1">.pub a{color:var(--acc2);font-size:.85rem;text-decoration:none}</p>
+<p class="p1">.pub a:hover{text-decoration:underline}</p>
+<p class="p2"><br></p>
+<p class="p1">/* Blog */</p>
+<p class="p1">.blog-card{display:flex;flex-direction:column}</p>
+<p class="p1">.blog-card .banner{height:140px;border-radius:14px;margin-bottom:18px;background:var(--grad);background-size:300% 300%;animation:gradShift 8s ease infinite;display:grid;place-items:center;font-size:2.2rem}</p>
+<p class="p1">.blog-card:nth-child(2) .banner{filter:hue-rotate(120deg)}</p>
+<p class="p1">.blog-card:nth-child(3) .banner{filter:hue-rotate(240deg)}</p>
+<p class="p1">.blog-meta{font-size:.75rem;color:var(--acc);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}</p>
+<p class="p1">.read{margin-top:auto;padding-top:14px;color:var(--acc2);font-size:.88rem;font-weight:600;text-decoration:none}</p>
+<p class="p1">.read:hover{letter-spacing:.5px}</p>
+<p class="p2"><br></p>
+<p class="p1">/* Contact + footer */</p>
+<p class="p1">.contact-box{text-align:center;background:var(--card);border:1px solid var(--border);border-radius:24px;padding:56px 28px}</p>
+<p class="p1">.contact-box p{color:var(--muted);max-width:520px;margin:0 auto 28px;line-height:1.7}</p>
+<p class="p1">.socials{display:flex;gap:12px;justify-content:center;margin-top:28px;flex-wrap:wrap}</p>
+<p class="p1">.socials a{padding:10px 18px;border:1px solid var(--border);border-radius:999px;color:var(--muted);text-decoration:none;font-size:.85rem;transition:.3s}</p>
+<p class="p1">.socials a:hover{color:var(--acc);border-color:var(--acc);transform:translateY(-3px)}</p>
+<p class="p1">footer{text-align:center;padding:36px;color:var(--muted);font-size:.8rem;border-top:1px solid var(--border)}</p>
+<p class="p2"><br></p>
+<p class="p1">@media(max-width:760px){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.about-grid{grid-template-columns:1fr}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.tabbar{bottom:14px;top:auto;max-width:94vw;overflow-x:auto}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.tabbar a{padding:8px 12px;font-size:.78rem;white-space:nowrap}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.pub{flex-direction:column;gap:8px}</p>
+<p class="p1">}</p>
+<p class="p1">&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;div class="bg-orbs"&gt;&lt;div class="orb o1"&gt;&lt;/div&gt;&lt;div class="orb o2"&gt;&lt;/div&gt;&lt;div class="orb o3"&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- Floating tab bar --&gt;</p>
+<p class="p1">&lt;nav class="tabbar" id="tabbar"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;a href="#home" class="active"&gt;Home&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;a href="#about"&gt;About&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;a href="#research"&gt;Research&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;a href="#publications"&gt;Publications&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;a href="#blog"&gt;Blog&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;a href="#contact"&gt;Contact&lt;/a&gt;</p>
+<p class="p1">&lt;/nav&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- Hero --&gt;</p>
+<p class="p1">&lt;header class="hero" id="home"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="avatar"&gt;AJ&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;h1&gt;Dr. &lt;span&gt;Atul Jakhar&lt;/span&gt;&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;p class="type-line"&gt;&lt;span id="typed"&gt;&lt;/span&gt;&lt;span class="cursor"&gt;&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="hero-cta"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;a class="btn btn-fill" href="#publications"&gt;View Publications&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;a class="btn btn-line" href="#contact"&gt;Get in Touch&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="scroll-hint"&gt;▼ scroll to explore&lt;/div&gt;</p>
+<p class="p1">&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- About --&gt;</p>
+<p class="p1">&lt;section id="about"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="reveal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="sec-tag"&gt;About Me&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2 class="sec-title"&gt;Researcher. Educator. Explorer.&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="about-grid"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="reveal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;I am a Postdoctoral Researcher working in fluid dynamics and heat &amp;amp; mass transfer. My research spans hydrodynamic and thermal instability, double and triple diffusive convection, magnetohydrodynamics (MHD), hybrid nanofluids, porous media, and bio-convection.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;Using linear and weakly nonlinear stability analysis alongside numerical methods, I investigate how modulated boundaries, internal heat sources, magnetic fields, and chemical reactions shape transport phenomena, with applications from thermal engineering to biological systems.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="stats reveal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="stat"&gt;&lt;b data-count="15"&gt;0&lt;/b&gt;&lt;span&gt;Publications&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="stat"&gt;&lt;b data-count="5"&gt;0&lt;/b&gt;&lt;span&gt;Q1 / High-Impact Papers&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="stat"&gt;&lt;b data-count="8"&gt;0&lt;/b&gt;&lt;span&gt;Conferences&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="stat"&gt;&lt;b data-count="6"&gt;0&lt;/b&gt;&lt;span&gt;Years Research&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- Research --&gt;</p>
+<p class="p1">&lt;section id="research"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="reveal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="sec-tag"&gt;Research&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2 class="sec-title"&gt;Areas of Interest&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="grid3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card reveal"&gt;&lt;div class="ico"&gt;🌊&lt;/div&gt;&lt;h3&gt;Hydrodynamic &amp;amp; Thermal Instability&lt;/h3&gt;&lt;p&gt;Linear and weakly nonlinear instability analysis of double and triple diffusive convection under internal heat sources, gravity, and boundary modulations.&lt;/p&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card reveal"&gt;&lt;div class="ico"&gt;🧲&lt;/div&gt;&lt;h3&gt;MHD &amp;amp; Magneto-Convection&lt;/h3&gt;&lt;p&gt;Magnetohydrodynamic flows with Hall currents, radial magnetic fields, and magneto-convection in Newtonian and non-Newtonian (Williamson, Walter-B) fluids.&lt;/p&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card reveal"&gt;&lt;div class="ico"&gt;🔥&lt;/div&gt;&lt;h3&gt;Nanofluids &amp;amp; Bio-Convection&lt;/h3&gt;&lt;p&gt;Heat and mass transfer in hybrid nanofluids (Cu–Al₂O₃, MoS₂–SiO₂), porous media, and bio-convection dynamics of microorganisms in buoyant fluids.&lt;/p&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- Publications --&gt;</p>
+<p class="p1">&lt;section id="publications"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="reveal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="sec-tag"&gt;Publications&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2 class="sec-title"&gt;Research Articles&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="pub reveal"&gt;&lt;div class="yr"&gt;2026&lt;/div&gt;&lt;div&gt;&lt;h3&gt;A Numerical Study on the Influence of Viscous Dissipation and Hall Current Induced by a Radial Magnetic Field on MHD Flow over a Stretching Cylinder&lt;/h3&gt;&lt;p&gt;Anurag, Sukariya, V.K., Kumar, A., Rathore, T., &lt;b&gt;Jakhar, A.&lt;/b&gt; — &lt;em&gt;ZAMM - Journal of Applied Mathematics and Mechanics&lt;/em&gt; (Q2, SCI)&lt;/p&gt;&lt;a href="https://doi.org/10.1002/zamm.70351" target="_blank"&gt;DOI →&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="pub reveal"&gt;&lt;div class="yr"&gt;2025&lt;/div&gt;&lt;div&gt;&lt;h3&gt;Study of Bio-convection Dynamics under Time-varying Concentration Gradient&lt;/h3&gt;&lt;p&gt;&lt;b&gt;Jakhar, A.&lt;/b&gt;, Anurag, Sukariya, V.K., Kumar, A. — &lt;em&gt;Chinese Journal of Physics&lt;/em&gt; (Q1, SCI)&lt;/p&gt;&lt;a href="https://doi.org/10.1016/j.cjph.2025.04.031" target="_blank"&gt;DOI →&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="pub reveal"&gt;&lt;div class="yr"&gt;2025&lt;/div&gt;&lt;div&gt;&lt;h3&gt;Effect of Hall Current and Radial Magnetic Field on MoS₂–SiO₂/H₂O Hybrid Nanofluid Flow over a Vertical Stretching Cylinder&lt;/h3&gt;&lt;p&gt;Anurag, Sukariya, V.K., Lata, J., Kumar, A., &lt;b&gt;Jakhar, A.&lt;/b&gt; — &lt;em&gt;J. Braz. Soc. Mech. Sci. Eng.&lt;/em&gt;, 47, 187 (Q2, SCI)&lt;/p&gt;&lt;a href="https://doi.org/10.1007/s40430-025-05504-1" target="_blank"&gt;DOI →&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="pub reveal"&gt;&lt;div class="yr"&gt;2025&lt;/div&gt;&lt;div&gt;&lt;h3&gt;Investigating the Nonlinear Behavior of Microorganisms in Buoyant Fluids&lt;/h3&gt;&lt;p&gt;Anurag, Singh, A., Kumar, A., &lt;b&gt;Jakhar, A.&lt;/b&gt; — &lt;em&gt;Multiscale and Multidiscip. Model. Exp. and Des.&lt;/em&gt;, 8, 226 (Q2, SCI)&lt;/p&gt;&lt;a href="https://doi.org/10.1007/s41939-025-00825-z" target="_blank"&gt;DOI →&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="pub reveal"&gt;&lt;div class="yr"&gt;2025&lt;/div&gt;&lt;div&gt;&lt;h3&gt;Numerical Exploration of Heat Source/Sink and Mixed Convection Effects on Thermally Stratified Cu–Al₂O₃/H₂O Hybrid Nanofluid Flow over a Vertical Stretching Cylinder Subjected to a Radial Magnetic Field&lt;/h3&gt;&lt;p&gt;Sukariya, V.K., &lt;b&gt;Jakhar, A.&lt;/b&gt;, Sharma, P., Kumar, A., Anurag — &lt;em&gt;ZAMM&lt;/em&gt;, 105, e202400963 (Q2, SCI)&lt;/p&gt;&lt;a href="https://doi.org/10.1002/zamm.202400963" target="_blank"&gt;DOI →&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="pub reveal"&gt;&lt;div class="yr"&gt;2025&lt;/div&gt;&lt;div&gt;&lt;h3&gt;Study of Heat and Mass Transfer of Transient Free Convection through Vertical Annuli in Presence of Heat Source, Chemical Reaction and Newtonian Heating&lt;/h3&gt;&lt;p&gt;&lt;b&gt;Atul Jakhar&lt;/b&gt;, Anand Kumar, V.K. Sukariya, Anurag — &lt;em&gt;Heat Transfer&lt;/em&gt; (Q2, SCI)&lt;/p&gt;&lt;a href="https://doi.org/10.1002/htj.23283" target="_blank"&gt;DOI →&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="pub reveal"&gt;&lt;div class="yr"&gt;2025&lt;/div&gt;&lt;div&gt;&lt;h3&gt;Weakly Nonlinear Instability Analysis in Triple Diffusive Convection under Gravity Modulation in Presence of Internal Heat Source&lt;/h3&gt;&lt;p&gt;&lt;b&gt;Atul Jakhar&lt;/b&gt;, Anurag, Anand Kumar — &lt;em&gt;Heat Transfer&lt;/em&gt; (Q2, SCI, I.F. 2.8)&lt;/p&gt;&lt;a href="https://doi.org/10.1002/htj.23170" target="_blank"&gt;DOI →&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="pub reveal"&gt;&lt;div class="yr"&gt;2024&lt;/div&gt;&lt;div&gt;&lt;h3&gt;Study of MHD Williamson Fluid Flow over a Stretched Cylinder with Hall, Thermal Dynamics, and Chemical Reactions Effects&lt;/h3&gt;&lt;p&gt;&lt;b&gt;Atul Jakhar&lt;/b&gt;, Vijay Kumar, Suresh, Anand Kumar, Anurag — &lt;em&gt;Journal of Thermal Analysis and Calorimetry&lt;/em&gt; (Q2, SCI)&lt;/p&gt;&lt;a href="https://doi.org/10.1007/s10973-024-13851-9" target="_blank"&gt;DOI →&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="pub reveal"&gt;&lt;div class="yr"&gt;2024&lt;/div&gt;&lt;div&gt;&lt;h3&gt;Effect of Hall Current Generated by a Radial Magnetic Field on Transient Natural Convection between Vertical Annuli&lt;/h3&gt;&lt;p&gt;V.K. Sukariya, Anurag, &lt;b&gt;Atul Jakhar&lt;/b&gt;, Anand Kumar — &lt;em&gt;Eur. Phys. J. Plus&lt;/em&gt;, 139:996 (Q2, SCI)&lt;/p&gt;&lt;a href="https://doi.org/10.1140/epjp/s13360-024-05786-9" target="_blank"&gt;DOI →&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="pub reveal"&gt;&lt;div class="yr"&gt;2024&lt;/div&gt;&lt;div&gt;&lt;h3&gt;Influence of Chemical Reaction on Transient Natural Convective Flow in an Infinite Vertical Cylinder Packed with Porous Material&lt;/h3&gt;&lt;p&gt;Anurag Shukla, Ashok Singh, Anand Kumar, &lt;b&gt;Atul Jakhar&lt;/b&gt; — &lt;em&gt;Numerical Heat Transfer, Part A&lt;/em&gt; (Q2, SCI, I.F. 2.8)&lt;/p&gt;&lt;a href="https://doi.org/10.1080/10407782.2024.2388244" target="_blank"&gt;DOI →&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="pub reveal"&gt;&lt;div class="yr"&gt;2024&lt;/div&gt;&lt;div&gt;&lt;h3&gt;Effect of Modulated Boundary on Heat and Mass Transport of Walter-B Viscoelastic Fluid Saturated in Porous Medium&lt;/h3&gt;&lt;p&gt;Anupama Singh, &lt;b&gt;Atul Jakhar&lt;/b&gt;, Anand Kumar — &lt;em&gt;Nonlinear Engineering&lt;/em&gt; (Q2, SCI, I.F. 2.4)&lt;/p&gt;&lt;a href="https://doi.org/10.1515/nleng-2024-0014" target="_blank"&gt;DOI →&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="pub reveal"&gt;&lt;div class="yr"&gt;2024&lt;/div&gt;&lt;div&gt;&lt;h3&gt;Study of Weakly Nonlinear Double-Diffusive Magneto-Convection with Throughflow under Concentration Modulation&lt;/h3&gt;&lt;p&gt;&lt;b&gt;Atul Jakhar&lt;/b&gt;, Anand Kumar, Priyanka Joshi — &lt;em&gt;Nonlinear Engineering&lt;/em&gt; (Q2, SCI, I.F. 2.4)&lt;/p&gt;&lt;a href="https://doi.org/10.1515/nleng-2024-0013" target="_blank"&gt;DOI →&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="pub reveal"&gt;&lt;div class="yr"&gt;2023&lt;/div&gt;&lt;div&gt;&lt;h3&gt;Weakly Nonlinear Instability Analysis of Triple Diffusive Convection under Internal Heat Generator and Modulated Boundaries&lt;/h3&gt;&lt;p&gt;&lt;b&gt;Atul Jakhar&lt;/b&gt;, Anand Kumar, Vinod K. Gupta — &lt;em&gt;Physics of Fluids&lt;/em&gt;, 35(10): 104105 (Q1, SCI, I.F. 4.1)&lt;/p&gt;&lt;a href="https://doi.org/10.1063/5.0169618" target="_blank"&gt;DOI →&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="pub reveal"&gt;&lt;div class="yr"&gt;2023&lt;/div&gt;&lt;div&gt;&lt;h3&gt;Study of Weakly Nonlinear Double-Diffusive Magnetoconvection under Concentration Modulation&lt;/h3&gt;&lt;p&gt;&lt;b&gt;Atul Jakhar&lt;/b&gt;, Anand Kumar, V.K. Gupta — &lt;em&gt;Heat Transfer&lt;/em&gt;, 52: 5500-5519 (Q2, SCI, I.F. 2.8)&lt;/p&gt;&lt;a href="https://doi.org/10.1002/htj.22939" target="_blank"&gt;DOI →&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="pub reveal"&gt;&lt;div class="yr"&gt;2023&lt;/div&gt;&lt;div&gt;&lt;h3&gt;Instability Analysis of Double Diffusive Convection under Time Dependent Solute Boundary Conditions in the Presence of Internal Heat Generator&lt;/h3&gt;&lt;p&gt;&lt;b&gt;Atul Jakhar&lt;/b&gt;, Anand Kumar — &lt;em&gt;Physics of Fluids&lt;/em&gt;, 35(7): 077101 (Q1, SCI, I.F. 4.1)&lt;/p&gt;&lt;a href="https://doi.org/10.1063/5.0155264" target="_blank"&gt;DOI →&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="reveal" style="margin-top:18px"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;a class="btn btn-line" href="https://scholar.google.com/citations?user=2P_eyfoAAAAJ&amp;hl=en" target="_blank"&gt;Full profile on Google Scholar →&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- Blog --&gt;</p>
+<p class="p1">&lt;section id="blog"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="reveal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="sec-tag"&gt;Blog&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2 class="sec-title"&gt;Latest Writing&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="grid3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;article class="card blog-card reveal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="banner"&gt;🌀&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="blog-meta"&gt;May 2026 · 6 min read&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3&gt;Why Convection Instability Matters: From Oceans to Engineering&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;A gentle introduction to double and triple diffusive convection, and why understanding instability helps us design better thermal systems.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a class="read" href="#"&gt;Read article →&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/article&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;article class="card blog-card reveal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="banner"&gt;🧲&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="blog-meta"&gt;March 2026 · 7 min read&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3&gt;Hybrid Nanofluids and Magnetic Fields: The Future of Heat Transfer&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;How Cu–Al₂O₃ and MoS₂–SiO₂ nanofluids combined with magnetic field control are opening new frontiers in cooling technology.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a class="read" href="#"&gt;Read article →&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/article&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;article class="card blog-card reveal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="banner"&gt;📝&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="blog-meta"&gt;January 2026 · 5 min read&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3&gt;Life as a Postdoc: Lessons from My Research Journey&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;Honest reflections on publishing, collaborating across institutions, and balancing curiosity-driven research with career milestones.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a class="read" href="#"&gt;Read article →&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/article&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- Contact --&gt;</p>
+<p class="p1">&lt;section id="contact"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="contact-box reveal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="sec-tag"&gt;Contact&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2 class="sec-title"&gt;Let's Collaborate&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Open to research collaborations in fluid dynamics, heat &amp;amp; mass transfer, and MHD, as well as speaking invitations and mentoring opportunities.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;a class="btn btn-fill" href="mailto:your.email@university.edu"&gt;Email Me&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="socials"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a href="https://scholar.google.com/citations?user=2P_eyfoAAAAJ&amp;hl=en" target="_blank"&gt;Google Scholar&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a href="https://orcid.org/" target="_blank"&gt;ORCID&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a href="https://www.researchgate.net/" target="_blank"&gt;ResearchGate&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a href="https://www.linkedin.com/" target="_blank"&gt;LinkedIn&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a href="https://github.com/atuljakhar" target="_blank"&gt;GitHub&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;footer&gt;© 2026 Dr. Atul Jakhar · Postdoctoral Researcher in Fluid Dynamics&lt;/footer&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p1">// Typing effect</p>
+<p class="p1">const phrases=["Postdoctoral Researcher","Fluid Dynamics Specialist","Heat &amp; Mass Transfer Expert","MHD &amp; Nanofluids Researcher"];</p>
+<p class="p1">let pi=0,ci=0,del=false;const typed=document.getElementById('typed');</p>
+<p class="p1">(function type(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const p=phrases[pi];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>typed.textContent=p.slice(0,ci);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(!del&amp;&amp;ci&lt;p.length){ci++;setTimeout(type,70);}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>else if(!del){del=true;setTimeout(type,1600);}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>else if(ci&gt;0){ci--;setTimeout(type,35);}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>else{del=false;pi=(pi+1)%phrases.length;setTimeout(type,300);}</p>
+<p class="p1">})();</p>
+<p class="p2"><br></p>
+<p class="p1">// Scroll reveal</p>
+<p class="p1">const io=new IntersectionObserver(es=&gt;es.forEach(e=&gt;{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});</p>
+<p class="p1">document.querySelectorAll('.reveal').forEach(el=&gt;io.observe(el));</p>
+<p class="p2"><br></p>
+<p class="p1">// Animated counters</p>
+<p class="p1">const cio=new IntersectionObserver(es=&gt;es.forEach(e=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(!e.isIntersecting)return;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const el=e.target,end=+el.dataset.count;let n=0;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const step=Math.max(1,Math.round(end/60));</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const t=setInterval(()=&gt;{n+=step;if(n&gt;=end){n=end;clearInterval(t);}el.textContent=n+'+';},25);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>cio.unobserve(el);</p>
+<p class="p1">}),{threshold:.6});</p>
+<p class="p1">document.querySelectorAll('[data-count]').forEach(el=&gt;cio.observe(el));</p>
+<p class="p2"><br></p>
+<p class="p1">// Active tab highlighting on scroll</p>
+<p class="p1">const links=[...document.querySelectorAll('.tabbar a')];</p>
+<p class="p1">const secs=links.map(a=&gt;document.querySelector(a.getAttribute('href')));</p>
+<p class="p1">const sio=new IntersectionObserver(es=&gt;es.forEach(e=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(e.isIntersecting){</p>
+<p class="p1"><span class="Apple-converted-space">    </span>links.forEach(l=&gt;l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id));</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1">}),{rootMargin:'-45% 0px -50% 0px'});</p>
+<p class="p1">secs.forEach(s=&gt;s&amp;&amp;sio.observe(s));</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
